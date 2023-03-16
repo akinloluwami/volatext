@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 import { initGA, logPageView } from "../utils/analytics";
