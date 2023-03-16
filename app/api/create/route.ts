@@ -1,5 +1,6 @@
 import prisma from "../../../prisma/prisma";
 import { NextResponse } from "next/server";
+import dayjs from "dayjs";
 
 export async function POST(request: Request) {
   try {
@@ -7,7 +8,7 @@ export async function POST(request: Request) {
       data: {
         text: "aaaaaaaaaaaaa",
         sharing_code: "2222",
-        expiry: new Date(),
+        expiry: dayjs().add(15, "minutes"),
       },
     });
 
