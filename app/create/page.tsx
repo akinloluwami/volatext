@@ -55,11 +55,11 @@ const Create = () => {
       <div className="modal modal-bottom sm:modal-middle">
         <div className="modal-box">
           <h3 className="font-bold text-lg">Text link created successfully</h3>
-          <div className="form-control mt-10">
-            <div className="input-group">
+          <div className="my-5">
+            <div className="w-full gap-1 flex items-center justify-center">
               <input
                 type="text"
-                className="input input-bordered"
+                className="input input-bordered w-[70%]"
                 value={`${process.env.NEXT_PUBLIC_URL}/${data.Text.sharing_code}`}
               />
               <button className="btn btn-square">Copy</button>
