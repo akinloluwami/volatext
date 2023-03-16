@@ -15,5 +15,6 @@ model Text {
   id       String    @id @default(auto()) @map("_id") @db.ObjectId
   sharing_code String
   text String
-  expiry DateTime  
+  expiry DateTime
+  created DateTime
   }
