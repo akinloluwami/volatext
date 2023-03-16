@@ -5,7 +5,7 @@ async function getText(code: string) {
   return res.json();
 }
 
-const TextPage = () => {
+const TextPage = ({ params: { code } }: { params: { code: string } }) => {
   return (
     <div className="my-4  flex-col flex items-center justify-center">
       <textarea
