@@ -13,7 +13,7 @@ datasource db {
 
 model Text {
   id       String    @id @default(auto()) @map("_id") @db.ObjectId
-  sharing_code String
+  sharing_code String @unique
   text String
   created DateTime
   expiry DateTime
