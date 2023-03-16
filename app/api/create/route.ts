@@ -6,9 +6,10 @@ import randomstring from "randomstring";
 export async function POST(request: Request) {
   try {
     const expiry = dayjs().add(15, "minutes").toDate();
+
     const Text = await prisma.text.create({
       data: {
-        text: "New text from client",
+        text: "aaaaaaaaaaaaa",
         sharing_code: randomstring.generate(4),
         expiry,
       },
