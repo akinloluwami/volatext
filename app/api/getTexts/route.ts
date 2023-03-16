@@ -6,6 +6,6 @@ export async function GET(request: Request) {
     const texts = await prisma.text.findMany();
     return NextResponse.json({ texts });
   } catch (error) {
-    return NextResponse.json({ message: "Something went wrong" });
+    return NextResponse.json({ message: "Something went wrong", error });
   }
 }
