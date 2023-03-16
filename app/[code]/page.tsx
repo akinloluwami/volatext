@@ -1,5 +1,7 @@
+"use client";
+import copyToClipboard from "@/utils/copyToClipboard";
 import Link from "next/link";
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 async function getText(code: string) {
   const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/${code}`, {
@@ -9,9 +11,25 @@ async function getText(code: string) {
   return res.json();
 }
 
-const TextPage = async ({ params: { code } }: { params: { code: string } }) => {
-  const textData = getText(code);
-  const [text] = await Promise.all([textData]);
+const TextPage = ({ params: { code } }: { params: { code: string } }) => {
+  const [text, setText] = useState<{ text?: string; sharing_code?: string }>(
+    {}
+  );
+
+  useEffect(() => {
+    async function fetchData() {
+      const data = await getText(code);
+      setText(data);
+    }
+    fetchData();
+  }, [code]);
+
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
   return (
     <>
       {text.text ? (
@@ -27,9 +45,14 @@ const TextPage = async ({ params: { code } }: { params: { code: string } }) => {
             readOnly
             value={text.text}
           ></textarea>
-          <button className="btn my-4 lg:w-fit lg:px-20 w-full disabled:cursor-not-allowed">
-            Copy text
-          </button>
+          {isClient && (
+            <button
+              className="btn my-4 lg:w-fit lg:px-20 w-full disabled:cursor-not-allowed"
+              onClick={() => copyToClipboard(text.text)}
+            >
+              Copy text
+            </button>
+          )}
         </div>
       ) : (
         <div className="flex my-20 items-center justify-center w-full flex-col">
