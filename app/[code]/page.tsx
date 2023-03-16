@@ -1,5 +1,10 @@
 import React from "react";
 
+async function getText(code: string) {
+  const res = await fetch(`/api/${code}`);
+  return res.json();
+}
+
 const TextPage = () => {
   return (
     <div className="my-4  flex-col flex items-center justify-center">
