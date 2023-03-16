@@ -49,12 +49,12 @@ const Create = () => {
         {loading ? "Creating..." : "Create"}{" "}
         {loading && <p className="animate-bounce text-3xl">*</p>}
       </button>
-      <div className="flex items-center gap-1 text-2xl">
+      <div className="flex items-center gap-1 text-xl">
         <p>Expire in </p>
         <input
           type="number"
           value={length}
-          className="w-12 h-12 text-center rounded-md"
+          className="w-10 h-10 text-center rounded-md"
           onChange={(e) => setLength(parseInt(e.target.value))}
         />
         <p>minutes</p>
