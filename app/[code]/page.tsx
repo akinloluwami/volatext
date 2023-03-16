@@ -1,6 +1,7 @@
-import copyToClipboard from "@/utils/copyToClipboard";
 import Link from "next/link";
 import React from "react";
+import dynamic from "next/dynamic";
+const DynamicButton = dynamic(() => import("../../components/DynamicButton"));
 
 async function getText(code: string) {
   const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/${code}`);
