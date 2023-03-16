@@ -13,7 +13,7 @@ export async function POST(request: Request) {
     }
 
     const expiry = dayjs()
-      .add(length || 15, "minutes")
+      .add(length || 15, length < 2 ? "minute" : "minutes")
       .toDate();
     const created = dayjs().toDate();
 
