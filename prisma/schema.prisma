@@ -9,3 +9,11 @@ datasource db {
   provider = "mongodb"
   url      = env("DB_URL")
 }
+
+
+model Text {
+  id       String    @id @default(auto()) @map("_id") @db.ObjectId
+  sharing_code String
+  text String
+  expiry DateTime  
+  }
