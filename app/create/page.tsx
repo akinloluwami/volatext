@@ -53,10 +53,12 @@ const Create = () => {
       <div className="modal modal-bottom sm:modal-middle">
         <div className="modal-box">
           <h3 className="font-bold text-lg">Text link created successfully</h3>
-          <p className="py-4">
-            You've been selected for a chance to get one year of subscription to
-            use Wikipedia for free!
-          </p>
+          <div className="form-control mt-10">
+            <div className="input-group">
+              <input type="text" className="input input-bordered" />
+              <button className="btn btn-square">Copy</button>
+            </div>
+          </div>
           <div className="modal-action">
             <label htmlFor="my-modal-6" className="btn">
               Yay!
