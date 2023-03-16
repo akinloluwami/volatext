@@ -7,8 +7,8 @@ const Hero = () => {
       <div className="w-1/2">
         <h1 className="text-8xl font-semibold">Securely share texts online</h1>
         <p className="font-semibold text-lg my-4">
-          Texts are encrypted and in our database and automatically deleted
-          after 15 minutes.
+          Texts are encrypted in our database and automatically deleted after 15
+          minutes.
         </p>
         <Link href={"/create"}>
           <button className="btn text-xl">Type & Share</button>
