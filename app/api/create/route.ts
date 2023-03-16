@@ -1,10 +1,10 @@
-import client from "../../../prisma/prisma";
+import prisma from "../../../prisma/prisma";
 import { NextResponse } from "next/server";
 
 export async function POST(request: Request) {
   try {
-    client.$connect();
-    const Text = await client.text.create({
+    prisma.$connect();
+    const Text = await prisma.text.create({
       data: {
         expiry_time: new Date(),
         text: "aaaaaaaaaaaaa",
