@@ -3,18 +3,26 @@ import React from "react";
 
 const Hero = () => {
   return (
-    <div className="px-24 my-4 flex items-center">
-      <div className="w-1/2">
-        <h1 className="text-8xl font-semibold">Securely share texts online</h1>
-        <p className="font-semibold text-lg my-4">
+    <div className="lg:px-24 lg:my-4 my-10 flex items-center">
+      <div className="lg:w-1/2 w-full">
+        <h1 className="lg:text-8xl text-6xl lg:text-left text-center font-semibold">
+          Securely share texts online
+        </h1>
+        <p className="text-2xl my-4 lg:text-left text-center">
           Texts are encrypted in our database and automatically deleted after 15
           minutes.
         </p>
-        <Link href={"/create"}>
+        <Link href={"/create"} className="hidden lg:block">
           <button className="btn text-xl">Type & Share</button>
         </Link>
+
+        <center className="lg:hidden">
+          <Link href={"/create"}>
+            <button className="btn text-xl">Type & Share</button>
+          </Link>
+        </center>
       </div>
-      <div className="w-1/2 ml-20">
+      <div className="w-1/2 ml-20 hidden lg:block">
         <img
           className=""
           src="https://media3.giphy.com/media/fmkYSBlJt3XjNF6p9c/giphy.gif"
