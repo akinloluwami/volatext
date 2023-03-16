@@ -15,12 +15,17 @@ async function getText(code: string) {
 const TextPage = ({ params: { code } }: { params: { code: string } }) => {
   const [text, setText] = useState({ text: "", sharing_code: "", diff: 0 });
   const [isLoading, setIsLoading] = useState(true);
+  const [timeLeft, setTimeLeft] = useState(0);
 
   useEffect(() => {
     async function fetchData() {
       try {
         const textData = await getText(code);
         setText(textData);
+        const { diff } = textData;
+        if (diff > 0) {
+          setTimeLeft(diff * 60);
+        }
       } catch (error) {
         setText({ text: "", sharing_code: "", diff: 0 });
       }
@@ -28,6 +33,21 @@ const TextPage = ({ params: { code } }: { params: { code: string } }) => {
     }
     fetchData();
   }, [code]);
+
+  useEffect(() => {
+    if (timeLeft > 0) {
+      const timer = setInterval(() => {
+        setTimeLeft((prev) => prev - 1);
+      }, 1000);
+      return () => clearInterval(timer);
+    }
+  }, [timeLeft]);
+
+  function formatTimeLeft() {
+    const minutes = Math.floor(timeLeft / 60);
+    const seconds = timeLeft % 60;
+    return `${minutes}m${seconds}s`;
+  }
 
   return (
     <>
@@ -46,7 +66,7 @@ const TextPage = ({ params: { code } }: { params: { code: string } }) => {
               <span className="font-semibold">{text.sharing_code} </span>
             </h2>
 
-            <p>Auto deleting in 14m22s</p>
+            <p>Auto deleting in {formatTimeLeft()}</p>
           </div>
           <textarea
             className="p-2 bg-transparent border-2 border-gray-900 lg:w-1/2 w-full h-96 rounded-md"
