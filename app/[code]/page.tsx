@@ -1,4 +1,5 @@
 "use client";
+
 import copyToClipboard from "@/utils/copyToClipboard";
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
@@ -12,27 +13,27 @@ async function getText(code: string) {
 }
 
 const TextPage = ({ params: { code } }: { params: { code: string } }) => {
-  const [text, setText] = useState<{ text?: string; sharing_code?: string }>(
-    {}
-  );
+  const [text, setText] = useState({ text: "", sharing_code: "" });
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     async function fetchData() {
-      const data = await getText(code);
-      setText(data);
+      try {
+        const textData = await getText(code);
+        setText(textData);
+      } catch (error) {
+        setText({ text: "", sharing_code: "" });
+      }
+      setIsLoading(false);
     }
     fetchData();
   }, [code]);
 
-  const [isClient, setIsClient] = useState(false);
-
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
-
   return (
     <>
-      {text.text ? (
+      {isLoading ? (
+        <div>Loading...</div>
+      ) : text.text ? (
         <div className="my-4 flex-col flex items-center justify-center">
           <div className="lg:w-1/2 w-full my-5">
             <h2 className="text-left text-2xl">
@@ -45,14 +46,12 @@ const TextPage = ({ params: { code } }: { params: { code: string } }) => {
             readOnly
             value={text.text}
           ></textarea>
-          {isClient && (
-            <button
-              className="btn my-4 lg:w-fit lg:px-20 w-full disabled:cursor-not-allowed"
-              onClick={() => copyToClipboard(text.text)}
-            >
-              Copy text
-            </button>
-          )}
+          <button
+            className="btn my-4 lg:w-fit lg:px-20 w-full disabled:cursor-not-allowed"
+            onClick={() => copyToClipboard(text.text)}
+          >
+            Copy text
+          </button>
         </div>
       ) : (
         <div className="flex my-20 items-center justify-center w-full flex-col">
