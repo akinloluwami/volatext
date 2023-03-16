@@ -7,6 +7,11 @@ import cryptr from "@/utils/cryptr";
 export async function POST(request: Request) {
   try {
     const { text } = await request.json();
+
+    if (!text) {
+      return NextResponse.json({ message: "Text is required" });
+    }
+
     const expiry = dayjs().add(15, "minutes").toDate();
     const created = dayjs().toDate();
 
