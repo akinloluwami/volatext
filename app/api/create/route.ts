@@ -8,7 +8,7 @@ export async function POST(request: Request) {
     const expiry = dayjs().add(15, "minutes").toDate();
     const Text = await prisma.text.create({
       data: {
-        text: "aaaaaaaaaaaaa",
+        text: "New text from client",
         sharing_code: randomstring.generate(4),
         expiry,
       },
