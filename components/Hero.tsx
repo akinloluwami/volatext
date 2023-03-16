@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 const Hero = () => {
@@ -9,7 +10,9 @@ const Hero = () => {
           Texts are encrypted and in our database and automatically deleted
           after 15 minutes.
         </p>
-        <button className="btn text-xl">Type & Share</button>
+        <Link href={"/create"}>
+          <button className="btn text-xl">Type & Share</button>
+        </Link>
       </div>
       <div className="w-1/2 ml-20">
         <img
