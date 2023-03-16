@@ -16,6 +16,8 @@ const GoogleAnalytics = () => {
       router.events.off("routeChangeComplete", logPageView);
     };
   }, [router.events]);
+
+  return <></>;
 };
 
 export default GoogleAnalytics;
