@@ -3,7 +3,6 @@ import { NextResponse } from "next/server";
 
 export async function POST(request: Request) {
   try {
-    // prisma.$connect();
     const Text = await prisma.text.create({
       data: {
         text: "aaaaaaaaaaaaa",
