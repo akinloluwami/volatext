@@ -3,9 +3,11 @@
 import React from "react";
 
 const Create = () => {
+  const data = { text: "This is a test for the MVP" };
   const createText = () => {
     fetch("/api/create", {
       method: "POST",
+      body: JSON.stringify(data),
     })
       .then((res) => res.json())
       .then((data) => {
