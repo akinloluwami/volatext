@@ -3,13 +3,16 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "mongodb"
   url      = env("DB_URL")
 }
 
 model Text {
-  id           Int      @id @default(autoincrement())
-  sharing_code String
-  text         String
-  expiry_time  DateTime
+id       String    @id @default(auto()) @map("_id") @db.ObjectId
+sharing_code String
+text String
+expiry DateTime  
 }
+
+
+
