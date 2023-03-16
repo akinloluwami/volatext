@@ -5,9 +5,7 @@ import randomstring from "randomstring";
 import Cryptr from "cryptr";
 
 export async function POST(request: Request) {
-  const cryptr = new Cryptr(
-    "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-  );
+  const cryptr = new Cryptr(process.env.ENC_STR as string);
 
   try {
     const { text } = await request.json();
