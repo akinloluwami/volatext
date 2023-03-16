@@ -23,11 +23,12 @@ const Create = () => {
         onChange={(e) => setText(e.target.value)}
       ></textarea>
       <button
-        className="btn my-4 lg:w-fit lg:px-20 w-full disabled:cursor-not-allowed"
+        className="btn my-4 lg:w-fit flex items-center lg:px-20 w-full disabled:cursor-not-allowed"
         onClick={createText}
         disabled={!text}
       >
-        Create
+        {loading ? "Creating..." : "Create"}{" "}
+        {loading && <p className="animate-bounce text-3xl">*</p>}
       </button>
     </div>
   );
