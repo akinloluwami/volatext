@@ -10,7 +10,7 @@ export async function POST(request: Request) {
     const Text = await prisma.text.create({
       data: {
         text,
-        sharing_code: randomstring.generate(4),
+        sharing_code: randomstring.generate(4).toLowerCase(),
         expiry,
       },
     });
