@@ -1,3 +1,4 @@
+import prisma from "@/prisma/prisma";
 import { NextResponse } from "next/server";
 
 export async function GET(
@@ -5,5 +6,14 @@ export async function GET(
   { params }: { params: { code: string } }
 ) {
   const code = params.code;
+
+  const text = await prisma.text.findUnique({
+    where: { sharing_code: code },
+  });
+
+  if (!text) {
+    return NextResponse.json({ message: "404" });
+  }
+
   return NextResponse.json({ hi: "Hello" });
 }
