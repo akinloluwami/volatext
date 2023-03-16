@@ -1,5 +1,6 @@
 import prisma from "@/prisma/prisma";
 import cryptr from "@/utils/cryptr";
+import dayjs from "dayjs";
 import { NextResponse } from "next/server";
 
 export async function GET(
@@ -16,8 +17,18 @@ export async function GET(
     return NextResponse.json({ message: "Text not found" });
   }
 
+  const now = dayjs();
+  const expiry = dayjs(text.expiry);
+
+  const diff = expiry.diff(now, "m");
+
+  if (diff < 1) {
+    return NextResponse.json({ message: "Text not found" });
+  }
+
   return NextResponse.json({
     text: cryptr.decrypt(text.text),
     sharing_code: text.sharing_code,
+    diff,
   });
 }
