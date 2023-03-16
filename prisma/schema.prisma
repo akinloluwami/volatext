@@ -18,3 +18,10 @@ model Text {
   created DateTime
   expiry DateTime
   }
+
+
+
+  model Create{
+  id       String    @id @default(auto()) @map("_id") @db.ObjectId
+  created DateTime
+  }
