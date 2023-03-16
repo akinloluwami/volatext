@@ -13,7 +13,7 @@ const TextPage = () => {
         // onClick={createText}
         // disabled={!text}
       >
-        Create
+        Copy text
       </button>
     </div>
   );
