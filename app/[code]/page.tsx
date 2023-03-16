@@ -15,7 +15,7 @@ const TextPage = async ({ params: { code } }: { params: { code: string } }) => {
   return (
     <>
       {text.text ? (
-        <div className="my-4  flex-col flex items-center justify-center">
+        <div className="my-4 flex-col flex items-center justify-center">
           <div className="lg:w-1/2 w-full my-5">
             <h2 className="text-left text-2xl">
               Sharing code -{" "}
