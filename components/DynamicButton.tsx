@@ -1,10 +1,10 @@
 import React from "react";
 
-const DynamicButton = ({ onClick }: any) => {
+const DynamicButton = ({ text }: { text: string }) => {
   return (
     <button
       className="btn my-4 lg:w-fit lg:px-20 w-full disabled:cursor-not-allowed"
-      onClick={onClick}
+      onClick={}
     >
       Copy text
     </button>
