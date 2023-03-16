@@ -9,6 +9,7 @@ const Create = () => {
   const [data, setData] = useState<{ Text: { sharing_code: string } }>({
     Text: { sharing_code: "" },
   });
+  const [btnTxt, setBtnTxt] = useState("Copy");
 
   const modalRef: any = useRef(null);
 
@@ -71,9 +72,13 @@ const Create = () => {
                   copyToClipboard(
                     `${process.env.NEXT_PUBLIC_URL}/${data.Text.sharing_code}`
                   );
+                  setBtnTxt("✔️");
+                  setTimeout(() => {
+                    setBtnTxt("Copy");
+                  }, 1000);
                 }}
               >
-                Copy
+                {btnTxt}
               </button>
             </div>
           </div>
