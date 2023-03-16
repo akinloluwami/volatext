@@ -7,10 +7,13 @@ export async function POST(request: Request) {
   try {
     const { text } = await request.json();
     const expiry = dayjs().add(15, "minutes").toDate();
+    const created = dayjs().toDate();
+
     const Text = await prisma.text.create({
       data: {
         text,
         sharing_code: randomstring.generate(4).toLowerCase(),
+        created,
         expiry,
       },
     });
