@@ -2,11 +2,9 @@ import prisma from "../../../prisma/prisma";
 import { NextResponse } from "next/server";
 import dayjs from "dayjs";
 import randomstring from "randomstring";
-import Cryptr from "cryptr";
+import cryptr from "@/utils/cryptr";
 
 export async function POST(request: Request) {
-  const cryptr = new Cryptr(process.env.ENC_STR as string);
-
   try {
     const { text } = await request.json();
     const expiry = dayjs().add(15, "minutes").toDate();
