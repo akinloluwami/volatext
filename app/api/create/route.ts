@@ -9,6 +9,8 @@ export async function POST(request: Request) {
     const expiry = dayjs().add(15, "minutes").toDate();
     const created = dayjs().toDate();
 
+    const encryptedString = 
+
     const Text = await prisma.text.create({
       data: {
         text,
