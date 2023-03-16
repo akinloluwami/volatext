@@ -1,5 +1,6 @@
 "use client";
 
+import copyToClipboard from "@/utils/copyToClipboard";
 import React, { useState, useRef } from "react";
 
 const Create = () => {
@@ -62,7 +63,16 @@ const Create = () => {
                 className="input input-bordered w-[70%]"
                 value={`${process.env.NEXT_PUBLIC_URL}/${data.Text.sharing_code}`}
               />
-              <button className="btn btn-square">Copy</button>
+              <button
+                className="btn btn-square"
+                onClick={() => {
+                  copyToClipboard(
+                    `${process.env.NEXT_PUBLIC_URL}/${data.Text.sharing_code}`
+                  );
+                }}
+              >
+                Copy
+              </button>
             </div>
           </div>
           <div className="modal-action">
