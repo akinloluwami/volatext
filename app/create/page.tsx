@@ -14,9 +14,15 @@ const Create = () => {
     fetch("/api/create", {
       method: "POST",
       body: JSON.stringify(data),
-    });
-    setLoading(false);
-    modalRef?.current?.click();
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.message === "Success") {
+          setLoading(false);
+          modalRef?.current?.click();
+          return;
+        }
+      });
   };
 
   return (
