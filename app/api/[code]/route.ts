@@ -23,6 +23,9 @@ export async function GET(
   const diff = expiry.diff(now, "m");
 
   if (diff < 1) {
+    await prisma.text.delete({
+      where: { sharing_code: code },
+    });
     return NextResponse.json({ message: "Text not found" });
   }
 
