@@ -27,9 +27,9 @@ const TextPage = async ({ params: { code } }: { params: { code: string } }) => {
             readOnly
             value={text.text}
           ></textarea>
-          {/* <button className="btn my-4 lg:w-fit lg:px-20 w-full disabled:cursor-not-allowed">
+          <button className="btn my-4 lg:w-fit lg:px-20 w-full disabled:cursor-not-allowed">
             Copy text
-          </button> */}
+          </button>
         </div>
       ) : (
         <div className="flex my-20 items-center justify-center w-full flex-col">
