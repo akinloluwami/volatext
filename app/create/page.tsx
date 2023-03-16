@@ -26,6 +26,7 @@ const Create = () => {
         if (data.message === "Success") {
           setLoading(false);
           setData(data);
+          setText("");
           modalRef?.current?.click();
           return;
         }
