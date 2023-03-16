@@ -1,3 +1,4 @@
+import copyToClipboard from "@/utils/copyToClipboard";
 import Link from "next/link";
 import React from "react";
 
@@ -18,7 +19,12 @@ const TextPage = async ({ params: { code } }: { params: { code: string } }) => {
             readOnly
             value={text.text}
           ></textarea>
-          <button className="btn my-4 lg:w-fit lg:px-20 w-full disabled:cursor-not-allowed">
+          <button
+            className="btn my-4 lg:w-fit lg:px-20 w-full disabled:cursor-not-allowed"
+            onClick={() => {
+              copyToClipboard(text.text);
+            }}
+          >
             Copy text
           </button>
         </div>
