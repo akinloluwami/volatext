@@ -15,5 +15,5 @@ export async function GET(
     return NextResponse.json({ message: "Text not found" });
   }
 
-  return NextResponse.json({ hi: "Hello" });
+  return NextResponse.json({ text });
 }
