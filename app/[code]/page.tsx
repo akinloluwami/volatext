@@ -13,7 +13,7 @@ async function getText(code: string) {
 }
 
 const TextPage = ({ params: { code } }: { params: { code: string } }) => {
-  const [text, setText] = useState({ text: "", sharing_code: "" });
+  const [text, setText] = useState({ text: "", sharing_code: "", diff: 0 });
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -22,7 +22,7 @@ const TextPage = ({ params: { code } }: { params: { code: string } }) => {
         const textData = await getText(code);
         setText(textData);
       } catch (error) {
-        setText({ text: "", sharing_code: "" });
+        setText({ text: "", sharing_code: "", diff: 0 });
       }
       setIsLoading(false);
     }
@@ -45,6 +45,8 @@ const TextPage = ({ params: { code } }: { params: { code: string } }) => {
               Sharing code -{" "}
               <span className="font-semibold">{text.sharing_code} </span>
             </h2>
+
+            <p>Auto deleting in ...//this should display countdown</p>
           </div>
           <textarea
             className="p-2 bg-transparent border-2 border-gray-900 lg:w-1/2 w-full h-96 rounded-md"
