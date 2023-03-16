@@ -23,8 +23,6 @@ const Create = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
-
         if (data.message === "Success") {
           setLoading(false);
           setData(data);
