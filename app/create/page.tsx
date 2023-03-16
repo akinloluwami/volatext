@@ -5,7 +5,9 @@ import React, { useState, useRef } from "react";
 const Create = () => {
   const [text, setText] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
-  const [data, setData] = useState({});
+  const [data, setData] = useState<{ Text: { sharing_code: string } }>({
+    Text: { sharing_code: "" },
+  });
 
   const modalRef: any = useRef(null);
 
@@ -55,7 +57,11 @@ const Create = () => {
           <h3 className="font-bold text-lg">Text link created successfully</h3>
           <div className="form-control mt-10">
             <div className="input-group">
-              <input type="text" className="input input-bordered" />
+              <input
+                type="text"
+                className="input input-bordered"
+                value={`${process.env.NEXT_PUBLIC_URL}/${data.Text.sharing_code}`}
+              />
               <button className="btn btn-square">Copy</button>
             </div>
           </div>
