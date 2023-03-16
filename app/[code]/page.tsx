@@ -40,13 +40,13 @@ const TextPage = ({ params: { code } }: { params: { code: string } }) => {
         </div>
       ) : text.text ? (
         <div className="my-4 flex-col flex items-center justify-center">
-          <div className="lg:w-1/2 w-full my-5">
+          <div className="lg:w-1/2 w-full my-5 flex justify-between">
             <h2 className="text-left text-2xl">
               Sharing code -{" "}
               <span className="font-semibold">{text.sharing_code} </span>
             </h2>
 
-            <p>Auto deleting in ...//this should display countdown</p>
+            <p>Auto deleting in 14m22s</p>
           </div>
           <textarea
             className="p-2 bg-transparent border-2 border-gray-900 lg:w-1/2 w-full h-96 rounded-md"
