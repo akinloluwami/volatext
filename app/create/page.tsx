@@ -10,7 +10,7 @@ const Create = () => {
     Text: { sharing_code: "" },
   });
   const [btnTxt, setBtnTxt] = useState("Copy");
-  const [length, setLength] = useState(15);
+  const [length, setLength] = useState<number>(15);
 
   const modalRef: any = useRef(null);
 
@@ -55,6 +55,7 @@ const Create = () => {
           type="text"
           value={length}
           className="w-12 h-12 text-center rounded-md"
+          onChange={(e) => setLength(e.target.value)}
         />
         <p>minutes</p>
       </div>
