@@ -49,7 +49,15 @@ const Create = () => {
         {loading ? "Creating..." : "Create"}{" "}
         {loading && <p className="animate-bounce text-3xl">*</p>}
       </button>
-
+      <div className="flex items-center gap-1 text-2xl">
+        <p>Expire in </p>
+        <input
+          type="text"
+          value={length}
+          className="w-12 h-12 text-center text-2xl rounded-md"
+        />
+        <p>minutes</p>
+      </div>
       <label htmlFor="my-modal-6" className="btn hidden" ref={modalRef}>
         open modal
       </label>
