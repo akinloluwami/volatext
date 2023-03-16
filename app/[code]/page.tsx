@@ -7,11 +7,7 @@ const TextPage = () => {
         className="p-2 bg-transparent border-2 border-gray-900 lg:w-1/2 w-full h-96 rounded-md"
         placeholder="Type here..."
       ></textarea>
-      <button
-        className="btn my-4 lg:w-fit lg:px-20 w-full disabled:cursor-not-allowed"
-        // onClick={createText}
-        // disabled={!text}
-      >
+      <button className="btn my-4 lg:w-fit lg:px-20 w-full disabled:cursor-not-allowed">
         Copy text
       </button>
     </div>
