@@ -12,7 +12,7 @@ export async function POST(request: Request) {
       return NextResponse.json({ message: "Text is required" });
     }
 
-    const expiry = dayjs().add(30, "minutes").toDate();
+    const expiry = dayjs().add(15, "minutes").toDate();
     const created = dayjs().toDate();
 
     const encryptedString = cryptr.encrypt(text);
