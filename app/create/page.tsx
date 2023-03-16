@@ -5,6 +5,7 @@ import React, { useState, useRef } from "react";
 const Create = () => {
   const [text, setText] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
+  const [data, setData] = useState({});
 
   const modalRef: any = useRef(null);
 
