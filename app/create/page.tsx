@@ -43,7 +43,7 @@ const Create = () => {
       ></textarea>
 
       <div className="flex items-center gap-1 text-xl my-3">
-        <p>Expire in </p>
+        <p>Expire in</p>
         <input
           type="number"
           value={length}
