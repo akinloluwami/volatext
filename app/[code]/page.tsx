@@ -1,7 +1,7 @@
 import React from "react";
 
 async function getText(code: string) {
-  const res = await fetch(`http:localhost:2001/api/${code}`);
+  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/${code}`);
   return res.json();
 }
 
