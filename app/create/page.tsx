@@ -26,6 +26,7 @@ const Create = () => {
       <button
         className="btn my-4 lg:w-fit lg:px-20 w-full"
         onClick={createText}
+        disabled={!text}
       >
         Create
       </button>
