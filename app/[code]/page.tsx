@@ -16,7 +16,7 @@ const TextPage = ({ params: { code } }: { params: { code: string } }) => {
   const [text, setText] = useState({ text: "", sharing_code: "", diff: 0 });
   const [isLoading, setIsLoading] = useState(true);
   const [timeLeft, setTimeLeft] = useState(0);
-
+  const [btnTxt, setBtnTxt] = useState("Copy Text");
   useEffect(() => {
     async function fetchData() {
       try {
@@ -75,9 +75,15 @@ const TextPage = ({ params: { code } }: { params: { code: string } }) => {
           ></textarea>
           <button
             className="btn my-4 lg:w-fit lg:px-20 w-full disabled:cursor-not-allowed"
-            onClick={() => copyToClipboard(text.text)}
+            onClick={() => {
+              copyToClipboard(text.text);
+              setBtnTxt("Copied!");
+              setTimeout(() => {
+                setBtnTxt("Copy Text");
+              }, 1000);
+            }}
           >
-            Copy text
+            {btnTxt}
           </button>
         </div>
       ) : (
