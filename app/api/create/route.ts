@@ -7,7 +7,7 @@ export async function POST(request: Request) {
     const Text = await prisma.text.create({
       data: {
         text: "aaaaaaaaaaaaa",
-        sharing_code: "2222",
+        sharing_code: crypto.randomUUID(),
         expiry: dayjs().add(15, "minutes"),
       },
     });
