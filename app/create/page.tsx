@@ -1,10 +1,12 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 
 const Create = () => {
-  const data = { text: "This is a test for the MVP" };
+  const [text, setText] = useState<string>("");
+
   const createText = () => {
+    const data = { text };
     fetch("/api/create", {
       method: "POST",
       body: JSON.stringify(data),
