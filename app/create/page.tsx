@@ -4,17 +4,16 @@ import React, { useState } from "react";
 
 const Create = () => {
   const [text, setText] = useState<string>("");
+  const [loading, setLoading] = useState<boolean>(false);
 
   const createText = () => {
+    setLoading(true);
     const data = { text };
     fetch("/api/create", {
       method: "POST",
       body: JSON.stringify(data),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-      });
+    });
+    setLoading(false);
   };
   return (
     <div className="my-4  flex-col flex items-center justify-center">
