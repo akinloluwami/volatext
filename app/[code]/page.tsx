@@ -1,7 +1,5 @@
 import Link from "next/link";
 import React from "react";
-import dynamic from "next/dynamic";
-const DynamicButton = dynamic(() => import("../../components/DynamicButton"));
 
 async function getText(code: string) {
   const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/${code}`);
@@ -20,7 +18,9 @@ const TextPage = async ({ params: { code } }: { params: { code: string } }) => {
             readOnly
             value={text.text}
           ></textarea>
-          <DynamicButton text={text.text} />
+          {/* <button className="btn my-4 lg:w-fit lg:px-20 w-full disabled:cursor-not-allowed">
+            Copy text
+          </button> */}
         </div>
       ) : (
         <div className="flex my-20 items-center justify-center w-full flex-col">
