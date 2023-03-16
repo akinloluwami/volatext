@@ -2,18 +2,23 @@ import prisma from "../../../prisma/prisma";
 import { NextResponse } from "next/server";
 import dayjs from "dayjs";
 import randomstring from "randomstring";
+import Cryptr from "cryptr";
 
 export async function POST(request: Request) {
+  const cryptr = new Cryptr(
+    "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+  );
+
   try {
     const { text } = await request.json();
     const expiry = dayjs().add(15, "minutes").toDate();
     const created = dayjs().toDate();
 
-    const encryptedString = 
+    const encryptedString = cryptr.encrypt(text);
 
     const Text = await prisma.text.create({
       data: {
-        text,
+        text: encryptedString,
         sharing_code: randomstring.generate(4).toLowerCase(),
         created,
         expiry,
