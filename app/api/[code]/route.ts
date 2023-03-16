@@ -1,4 +1,5 @@
 import prisma from "@/prisma/prisma";
+import cryptr from "@/utils/cryptr";
 import { NextResponse } from "next/server";
 
 export async function GET(
@@ -15,5 +16,8 @@ export async function GET(
     return NextResponse.json({ message: "Text not found" });
   }
 
-  return NextResponse.json({ text });
+  return NextResponse.json({
+    text: cryptr.decrypt(text.text),
+    sharing_code: text.sharing_code,
+  });
 }
