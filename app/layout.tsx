@@ -2,7 +2,7 @@ import Navbar from "@/components/Navbar";
 import "./globals.css";
 
 export const metadata = {
-  title: "Volatext",
+  title: "Volatext - Securely share texts online",
   description: "Securely share texts online",
 };
 
