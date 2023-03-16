@@ -1,10 +1,12 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 
 const Create = () => {
   const [text, setText] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
+
+  const modalRef = useRef();
 
   const createText = () => {
     setLoading(true);
@@ -14,7 +16,9 @@ const Create = () => {
       body: JSON.stringify(data),
     });
     setLoading(false);
+    modalRef.current.click();
   };
+
   return (
     <div className="my-4  flex-col flex items-center justify-center">
       <textarea
@@ -31,7 +35,7 @@ const Create = () => {
         {loading && <p className="animate-bounce text-3xl">*</p>}
       </button>
 
-      <label htmlFor="my-modal-6" className="btn">
+      <label htmlFor="my-modal-6" className="btn" ref={modalRef}>
         open modal
       </label>
 
