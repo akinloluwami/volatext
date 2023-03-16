@@ -6,6 +6,8 @@ async function getText(code: string) {
 }
 
 const TextPage = ({ params: { code } }: { params: { code: string } }) => {
+  const textData = getText(code);
+
   return (
     <div className="my-4  flex-col flex items-center justify-center">
       <textarea
