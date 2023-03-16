@@ -20,7 +20,7 @@ const TextPage = async ({ params: { code } }: { params: { code: string } }) => {
             readOnly
             value={text.text}
           ></textarea>
-          <DynamicButton />
+          <DynamicButton text={text.text} />
         </div>
       ) : (
         <div className="flex my-20 items-center justify-center w-full flex-col">
