@@ -54,7 +54,7 @@ const Create = () => {
         <input
           type="text"
           value={length}
-          className="w-12 h-12 text-center text-2xl rounded-md"
+          className="w-12 h-12 text-center rounded-md"
         />
         <p>minutes</p>
       </div>
