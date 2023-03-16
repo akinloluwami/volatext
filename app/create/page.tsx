@@ -16,7 +16,7 @@ const Create = () => {
 
   const createText = () => {
     setLoading(true);
-    const data = { text };
+    const data = { text, length };
     fetch("/api/create", {
       method: "POST",
       body: JSON.stringify(data),
