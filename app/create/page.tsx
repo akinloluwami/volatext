@@ -6,7 +6,7 @@ const Create = () => {
   const [text, setText] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
 
-  const modalRef = useRef(null);
+  const modalRef: any = useRef(null);
 
   const createText = () => {
     setLoading(true);
@@ -16,7 +16,7 @@ const Create = () => {
       body: JSON.stringify(data),
     });
     setLoading(false);
-    modalRef.current.click();
+    modalRef?.current?.click();
   };
 
   return (
