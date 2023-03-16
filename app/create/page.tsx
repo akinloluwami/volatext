@@ -6,7 +6,7 @@ const Create = () => {
   const [text, setText] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
 
-  const modalRef = useRef();
+  const modalRef = useRef(null);
 
   const createText = () => {
     setLoading(true);
