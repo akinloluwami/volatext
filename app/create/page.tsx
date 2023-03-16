@@ -52,7 +52,7 @@ const Create = () => {
       <div className="flex items-center gap-1 text-2xl">
         <p>Expire in </p>
         <input
-          type="text"
+          type="number"
           value={length}
           className="w-12 h-12 text-center rounded-md"
           onChange={(e) => setLength(parseInt(e.target.value))}
