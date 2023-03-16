@@ -12,7 +12,7 @@ export async function GET(
   });
 
   if (!text) {
-    return NextResponse.json({ message: "404" });
+    return NextResponse.json({ message: "Text not found" });
   }
 
   return NextResponse.json({ hi: "Hello" });
