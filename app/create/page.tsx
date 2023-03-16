@@ -41,15 +41,8 @@ const Create = () => {
         onChange={(e) => setText(e.target.value)}
         value={text}
       ></textarea>
-      <button
-        className="btn my-4 lg:w-fit flex items-center lg:px-20 w-full disabled:cursor-not-allowed"
-        onClick={createText}
-        disabled={!text}
-      >
-        {loading ? "Creating..." : "Create"}{" "}
-        {loading && <p className="animate-bounce text-3xl">*</p>}
-      </button>
-      <div className="flex items-center gap-1 text-xl">
+
+      <div className="flex items-center gap-1 text-xl my-3">
         <p>Expire in </p>
         <input
           type="number"
@@ -59,6 +52,14 @@ const Create = () => {
         />
         <p>minutes</p>
       </div>
+      <button
+        className="btn my-4 lg:w-fit flex items-center lg:px-20 w-full disabled:cursor-not-allowed"
+        onClick={createText}
+        disabled={!text}
+      >
+        {loading ? "Creating..." : "Create"}{" "}
+        {loading && <p className="animate-bounce text-3xl">*</p>}
+      </button>
       <label htmlFor="my-modal-6" className="btn hidden" ref={modalRef}>
         open modal
       </label>
