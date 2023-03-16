@@ -47,7 +47,7 @@ const Create = () => {
         {loading && <p className="animate-bounce text-3xl">*</p>}
       </button>
 
-      <label htmlFor="my-modal-6" className="btn" ref={modalRef}>
+      <label htmlFor="my-modal-6" className="btn hidden" ref={modalRef}>
         open modal
       </label>
 
