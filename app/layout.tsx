@@ -19,7 +19,7 @@ export default function RootLayout({
         <div className="px-5">
           {children}
           <Analytics />
-          <GoogleAnalytics />
+          {/* <GoogleAnalytics /> */}
         </div>
       </body>
     </html>
