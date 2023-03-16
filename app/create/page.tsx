@@ -55,7 +55,7 @@ const Create = () => {
           type="text"
           value={length}
           className="w-12 h-12 text-center rounded-md"
-          onChange={(e) => setLength(e.target.value)}
+          onChange={(e) => setLength(parseInt(e.target.value))}
         />
         <p>minutes</p>
       </div>
