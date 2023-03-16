@@ -10,6 +10,7 @@ const Create = () => {
     Text: { sharing_code: "" },
   });
   const [btnTxt, setBtnTxt] = useState("Copy");
+  const [length, setLength] = useState(15);
 
   const modalRef: any = useRef(null);
 
