@@ -35,12 +35,14 @@ const Hero = () => {
               maxLength={4}
               onChange={(e) => setSharingCode(e.target.value)}
             />
-            <button
-              className="btn"
-              disabled={sharingCode.length < 4 || sharingCode.length > 4}
-            >
-              View
-            </button>
+            <Link href={`${process.env.NEXT_PUBLIC_URL}/${sharingCode}`}>
+              <button
+                className="btn"
+                disabled={sharingCode.length < 4 || sharingCode.length > 4}
+              >
+                View
+              </button>
+            </Link>
           </div>
         </div>
       </div>
