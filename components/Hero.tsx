@@ -27,7 +27,7 @@ const Hero = () => {
             <button className="btn text-xl w-fit">Type & Share</button>
           </Link>
           <p className="my-3 lg:text-left text-center">Or</p>
-          <div className="flex items-center gap-1">
+          <div className="flex items-center gap-1 justify-center lg:justify-start">
             <input
               type="text"
               className="rounded-md pl-6 text-lg py-2 bg-transparent border-2"
