@@ -1,5 +1,7 @@
+"use client";
+
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 
 const Hero = () => {
   return (
@@ -28,6 +30,7 @@ const Hero = () => {
               type="text"
               className="rounded-md pl-6 text-lg py-2 bg-transparent border-2"
               placeholder="Enter sharing code"
+              maxLength={4}
             />
             <button className="btn">View</button>
           </div>
