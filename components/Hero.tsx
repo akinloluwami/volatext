@@ -12,11 +12,17 @@ const Hero = () => {
           Texts are encrypted in our database and automatically deleted after 15
           minutes.
         </p>
+
+        <center className="lg:hidden">
+          <Link href={"/create"}>
+            <button className="btn text-xl">Type & Share</button>
+          </Link>
+        </center>
         <div className="flex flex-col">
           <Link href={"/create"} className="hidden lg:block w-fit">
             <button className="btn text-xl w-fit">Type & Share</button>
           </Link>
-          <p className="my-3">Or</p>
+          <p className="my-3 lg:text-left text-center">Or</p>
           <div className="flex items-center gap-1">
             <input
               type="text"
@@ -26,12 +32,6 @@ const Hero = () => {
             <button className="btn">View</button>
           </div>
         </div>
-
-        <center className="lg:hidden">
-          <Link href={"/create"}>
-            <button className="btn text-xl">Type & Share</button>
-          </Link>
-        </center>
       </div>
       <div className="w-1/2 ml-20 hidden lg:block">
         <img
