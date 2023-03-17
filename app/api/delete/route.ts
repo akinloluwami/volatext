@@ -1,5 +1,4 @@
 import prisma from "@/prisma/prisma";
-import cryptr from "@/utils/cryptr";
 import dayjs from "dayjs";
 import { NextResponse } from "next/server";
 
