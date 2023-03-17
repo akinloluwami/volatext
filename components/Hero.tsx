@@ -34,7 +34,12 @@ const Hero = () => {
               placeholder="Enter sharing code"
               maxLength={4}
             />
-            <button className="btn">View</button>
+            <button
+              className="btn"
+              disabled={sharingCode.length < 4 || sharingCode.length > 4}
+            >
+              View
+            </button>
           </div>
         </div>
       </div>
