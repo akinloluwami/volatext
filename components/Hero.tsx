@@ -4,6 +4,8 @@ import Link from "next/link";
 import React, { useState } from "react";
 
 const Hero = () => {
+  const [sharingCode, setSharingCode] = useState("");
+
   return (
     <div className="lg:px-10 lg:my-4 my-10 flex items-center">
       <div className="lg:w-1/2 w-full">
