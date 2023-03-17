@@ -2,6 +2,9 @@ import Navbar from "@/components/Navbar";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
+import * as gtag from "../utils/gtag";
+import { useRouter } from "next/router";
+
 export const metadata = {
   title: "Volatext - Securely share texts online",
   description: "Securely share texts online",
@@ -12,13 +15,14 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const router = useRouter();
   return (
     <html lang="en">
       <head>
         {/* Global Site Tag (gtag.js) - Google Analytics */}
         <script
           async
-          src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
+          src={`https://www.googletagmanager.com/gtag/js?id=${gtag.GA_TRACKING_ID}`}
         />
         <script
           dangerouslySetInnerHTML={{
@@ -26,7 +30,7 @@ export default function RootLayout({
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', '${GA_TRACKING_ID}', {
+              gtag('config', '${gtag.GA_TRACKING_ID}', {
                 page_path: window.location.pathname,
               });
           `,
