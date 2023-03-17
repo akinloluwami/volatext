@@ -1,16 +1,12 @@
-"use client";
 import Navbar from "@/components/Navbar";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
-import GoogleAnalytics from "@/components/GoogleAnalytics";
 import * as gtag from "../utils/gtag";
-import Head from "next/head";
-import { useRouter } from "next/router";
-import { useEffect } from "react";
-// export const metadata = {
-//   title: "Volatext - Securely share texts online",
-//   description: "Securely share texts online",
-// };
+
+export const metadata = {
+  title: "Volatext - Securely share texts online",
+  description: "Securely share texts online",
+};
 
 export default function RootLayout({
   children,
@@ -19,7 +15,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <Head>
+      <head>
         <title>Volatext - Securely share texts online</title>
         {/* Global Site Tag (gtag.js) - Google Analytics */}
         <script
@@ -38,7 +34,7 @@ export default function RootLayout({
           `,
           }}
         />
-      </Head>
+      </head>
       <body>
         <Navbar />
         <div className="px-5">
