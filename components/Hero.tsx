@@ -33,6 +33,7 @@ const Hero = () => {
               className="rounded-md pl-6 text-lg py-2 bg-transparent border-2"
               placeholder="Enter sharing code"
               maxLength={4}
+              onChange={(e) => setSharingCode(e.target.value)}
             />
             <button
               className="btn"
