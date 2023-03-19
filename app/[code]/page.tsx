@@ -53,10 +53,10 @@ const TextPage = ({ params: { code } }: { params: { code: string } }) => {
   const decrypt = () => {
     axios
       .get(
-        `${process.env.NEXT_PUBLIC_BACKEND_URL}/decrypt?code=${code}&password=${password}`
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/decrypt?code=${text.sharing_code}&password=${password}`
       )
       .then((data) => {
-        console.log(data);
+        console.log(data.data);
       });
   };
 

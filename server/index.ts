@@ -15,7 +15,7 @@ app.get("/", async (req: Request, res: Response) => {
 });
 
 app.post("/create", create);
-app.get("/:code", get);
 app.get("/decrypt", decrypt);
+app.get("/:code", get);
 
 app.listen(5656, () => console.log("Server is live"));
