@@ -29,6 +29,10 @@ export async function GET(
     return NextResponse.json({ message: "Text not found" });
   }
 
+  if (text.isProtected) {
+    return NextResponse.json({ message: text.text.replaceAll("a", "@") });
+  }
+
   return NextResponse.json({
     text: cryptr.decrypt(text.text),
     sharing_code: text.sharing_code,
