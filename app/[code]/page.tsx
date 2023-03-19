@@ -89,7 +89,7 @@ const TextPage = ({ params: { code } }: { params: { code: string } }) => {
       ) : text.text ? (
         <div className="my-4 flex-col flex items-center justify-center">
           <div className="lg:w-1/2 w-full my-5 flex justify-between">
-            <h2 className="text-left text-2xl">
+            <h2 className="text-left lg:text-2xl text-lg">
               Sharing code -{" "}
               <span className="font-semibold">{text.sharing_code} </span>
             </h2>
