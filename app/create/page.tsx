@@ -36,32 +36,37 @@ const Create = () => {
   };
 
   return (
-    <div className="my-4  flex-col flex items-center justify-center">
-      <textarea
-        className="p-2 bg-transparent border-2 border-gray-900 lg:w-1/2 w-full h-96 rounded-md"
-        placeholder="Type here..."
-        onChange={(e) => setText(e.target.value)}
-        value={text}
-      ></textarea>
+    <div className="my-4 flex-col">
+      <div className="flex items-start w-full justify-center gap-10">
+        <div className="w-1/2">
+          <textarea
+            className="p-2 bg-transparent border-2 border-gray-900  w-full h-96 rounded-md"
+            placeholder="Type here..."
+            onChange={(e) => setText(e.target.value)}
+            value={text}
+          ></textarea>
 
-      <div className="flex items-center gap-1 text-xl my-3">
-        <p>Expire in</p>
-        <input
-          type="number"
-          value={length}
-          className="w-10 h-10 text-center rounded-md"
-          onChange={(e) => setLength(parseInt(e.target.value))}
-        />
-        <p>minutes</p>
+          <button
+            className="btn my-4 lg:w-fit flex items-center lg:px-20 w-full disabled:cursor-not-allowed"
+            onClick={createText}
+            disabled={!text || length < 1}
+          >
+            {loading ? "Creating..." : "Create"}{" "}
+            {loading && <p className="animate-bounce text-3xl">*</p>}
+          </button>
+        </div>
+        <div className="flex items-center gap-1 text-xl my-3">
+          <p>Expire in</p>
+          <input
+            type="number"
+            value={length}
+            className="w-10 h-10 text-center rounded-md"
+            onChange={(e) => setLength(parseInt(e.target.value))}
+          />
+          <p>minutes</p>
+        </div>
       </div>
-      <button
-        className="btn my-4 lg:w-fit flex items-center lg:px-20 w-full disabled:cursor-not-allowed"
-        onClick={createText}
-        disabled={!text || length < 1}
-      >
-        {loading ? "Creating..." : "Create"}{" "}
-        {loading && <p className="animate-bounce text-3xl">*</p>}
-      </button>
+
       <label htmlFor="my-modal-6" className="btn hidden" ref={modalRef}>
         open modal
       </label>
