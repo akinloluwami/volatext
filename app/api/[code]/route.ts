@@ -30,12 +30,16 @@ export async function GET(
   }
 
   if (text.isProtected) {
-    return NextResponse.json({ message: text.text.replaceAll("a", "@") });
+    return NextResponse.json({
+      message: text.text.replaceAll("a", "@"),
+      isProtected: text.isProtected,
+    });
   }
 
   return NextResponse.json({
     text: cryptr.decrypt(text.text),
     sharing_code: text.sharing_code,
     diff,
+    isProtected: text.isProtected,
   });
 }
