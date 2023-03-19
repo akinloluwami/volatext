@@ -2,7 +2,7 @@ import { query, Request, Response } from "express";
 import prisma from "../prisma/prisma";
 import cryptr from "../utils/cryptr";
 
-export async function decrypt(req: Request, res: Response) {
+export default async function decrypt(req: Request, res: Response) {
   try {
     const { code, password }: any = req.query;
     if (!code || !password) {
