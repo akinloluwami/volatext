@@ -31,7 +31,9 @@ export async function GET(
 
   if (text.isProtected) {
     return NextResponse.json({
-      message: text.text.replaceAll("a", "@"),
+      text: text.text.replaceAll("a", "@"),
+      sharing_code: text.sharing_code,
+      diff,
       isProtected: text.isProtected,
     });
   }
