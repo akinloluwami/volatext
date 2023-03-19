@@ -17,6 +17,7 @@ const TextPage = ({ params: { code } }: { params: { code: string } }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [timeLeft, setTimeLeft] = useState(0);
   const [btnTxt, setBtnTxt] = useState("Copy Text");
+  const [password, setPassword] = useState<string>("");
   useEffect(() => {
     async function fetchData() {
       try {
@@ -50,9 +51,13 @@ const TextPage = ({ params: { code } }: { params: { code: string } }) => {
   }
 
   const decrypt = () => {
-    axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/decrypt`).then((data) => {
-      console.log(data);
-    });
+    axios
+      .get(
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/decrypt?code=${code}&password=${password}`
+      )
+      .then((data) => {
+        console.log(data);
+      });
   };
 
   return (
@@ -83,7 +88,9 @@ const TextPage = ({ params: { code } }: { params: { code: string } }) => {
                 type="password"
                 className="input border-2 border-gray-500"
               />
-              <button className="btn">Decrypt</button>
+              <button className="btn" onClick={decrypt}>
+                Decrypt
+              </button>
             </div>
           </div>
           <textarea
