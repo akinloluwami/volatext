@@ -18,4 +18,4 @@ app.post("/create", create);
 app.get("/decrypt", decrypt);
 app.get("/:code", get);
 
-app.listen(5656, () => console.log("Server is live"));
+app.listen(process.env.PORT, () => console.log("Server is live"));

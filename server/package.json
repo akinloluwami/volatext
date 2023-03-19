@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.ts"
+    "start": "node dist/index.js",
+    "dev": "nodemon index.js",
+    "build": "tsc -p ."
   },
   "keywords": [],
   "author": "",
@@ -21,6 +23,7 @@
     "@types/connect": "^3.4.35",
     "@types/cors": "^2.8.13",
     "@types/express": "^4.17.17",
+    "@types/randomstring": "^1.1.8",
     "body-parser": "^1.20.2",
     "connect": "^3.7.0",
     "cors": "^2.8.5",
