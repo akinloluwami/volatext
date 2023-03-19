@@ -95,7 +95,7 @@ const TextPage = ({ params: { code } }: { params: { code: string } }) => {
               <span className="font-semibold">{text.sharing_code} </span>
             </h2>
 
-            <p>
+            <p className="flex items-center gap-1">
               <FaRegTrashAlt /> {formatTimeLeft()}
             </p>
           </div>
