@@ -4,15 +4,17 @@ import copyToClipboard from "@/utils/copyToClipboard";
 import React, { useState, useRef } from "react";
 
 const Create = () => {
-  const [text, setText] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
   const [data, setData] = useState<{ Text: { sharing_code: string } }>({
     Text: { sharing_code: "" },
   });
   const [btnTxt, setBtnTxt] = useState("Copy");
-  const [length, setLength] = useState<number>(15);
-
   const modalRef: any = useRef(null);
+
+  const [text, setText] = useState<string>("");
+  const [length, setLength] = useState<number>(15);
+  const [password, setPassword] = useState<string>("");
+  const [isProtected, setIsProtected] = useState<boolean>(false);
 
   const createText = () => {
     setLoading(true);
