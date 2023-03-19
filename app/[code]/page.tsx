@@ -111,7 +111,8 @@ const TextPage = ({ params: { code } }: { params: { code: string } }) => {
                   onChange={(e) => setPassword(e.target.value)}
                 />
                 <button className="btn" onClick={decrypt}>
-                  Decrypt
+                  {decrypting ? "Decrypting..." : "Decrypt"}{" "}
+                  {decrypting && <p className="animate-bounce text-3xl">*</p>}
                 </button>
               </div>
             </div>
