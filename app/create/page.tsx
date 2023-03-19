@@ -34,8 +34,8 @@ const Create = () => {
   };
 
   return (
-    <div className="flex justify-center gap-10 px-32 mt-10">
-      <div className="w-[60%]">
+    <div className="flex justify-center gap-10 lg:px-32 mt-10 flex-col lg:flex-row">
+      <div className="lg:w-[60%]">
         <textarea
           className="p-2 bg-transparent border-2 border-gray-900  w-full h-96 rounded-md"
           placeholder="Type here..."
@@ -54,7 +54,7 @@ const Create = () => {
           {loading && <p className="animate-bounce text-3xl">*</p>}
         </button>
       </div>
-      <div className="w-[30%]">
+      <div className="lg:w-[30%] w-full">
         <h1 className="font-semibold text-xl mb-5">Options</h1>
         <div className="flex items-center gap-1 my-3">
           <p>Expire in</p>
