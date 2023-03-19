@@ -1,5 +1,4 @@
 import express, { Request, Response } from "express";
-import prisma from "./prisma/prisma";
 import cors from "cors";
 import bodyParser from "body-parser";
 
