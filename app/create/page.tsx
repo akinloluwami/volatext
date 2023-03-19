@@ -69,7 +69,12 @@ const Create = () => {
           </div>
           <div className="flex items-center gap-2">
             <h2 className="font-semibold">Password protected</h2>
-            <input type="checkbox" className="toggle toggle-sm" checked />
+            <input
+              type="checkbox"
+              className="toggle toggle-sm"
+              checked={isProtected}
+              onChange={() => setIsProtected(!isProtected)}
+            />
           </div>
         </div>
       </div>
