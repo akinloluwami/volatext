@@ -48,7 +48,7 @@ const Create = () => {
         <button
           className="btn my-4 lg:w-fit flex items-center lg:px-20 w-full disabled:cursor-not-allowed"
           onClick={createText}
-          disabled={!text || length < 1}
+          disabled={!text || length < 1 || (isProtected && !password)}
         >
           {loading ? "Creating..." : "Create"}{" "}
           {loading && <p className="animate-bounce text-3xl">*</p>}
