@@ -55,15 +55,22 @@ const Create = () => {
             {loading && <p className="animate-bounce text-3xl">*</p>}
           </button>
         </div>
-        <div className="flex items-center gap-1 text-xl my-3">
-          <p>Expire in</p>
-          <input
-            type="number"
-            value={length}
-            className="w-10 h-10 text-center rounded-md"
-            onChange={(e) => setLength(parseInt(e.target.value))}
-          />
-          <p>minutes</p>
+        <div className="">
+          <h1 className="font-semibold text-xl mb-5">Options</h1>
+          <div className="flex items-center gap-1 my-3">
+            <p>Expire in</p>
+            <input
+              type="number"
+              value={length}
+              className="text-center w-8 rounded-md"
+              onChange={(e) => setLength(parseInt(e.target.value))}
+            />
+            <p>minutes</p>
+          </div>
+          <div className="flex">
+            <h2>Password protected</h2>
+            <input type="checkbox" className="toggle toggle-sm" checked />
+          </div>
         </div>
       </div>
 
