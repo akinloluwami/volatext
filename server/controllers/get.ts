@@ -4,7 +4,7 @@ import prisma from "../prisma/prisma";
 import cryptr from "../utils/cryptr";
 
 export default async function get(req: Request, res: Response) {
-  const code: any = req.query;
+  const code: any = req.params.code;
 
   const text = await prisma.text.findUnique({
     where: {
