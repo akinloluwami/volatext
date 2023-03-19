@@ -27,12 +27,12 @@ export async function decrypt(req: Request, res: Response) {
         message: "Invalid decryption payload",
       });
     }
-    return res.status(400).json({
+    return res.status(200).json({
       text: cryptr.decrypt(text.text),
     });
   } catch (error) {
     console.log(error);
 
-    return res.status(400).json({ message: "Something went wrong" });
+    return res.status(500).json({ message: "Something went wrong" });
   }
 }

@@ -13,7 +13,7 @@ export async function get(req: Request, res: Response) {
   });
 
   if (!text) {
-    return res.status(400).json({ message: "Text not found" });
+    return res.status(404).json({ message: "Text not found" });
   }
 
   const now = dayjs();
@@ -25,11 +25,11 @@ export async function get(req: Request, res: Response) {
     await prisma.text.delete({
       where: { sharing_code: code },
     });
-    return res.status(400).json({ message: "Text not found" });
+    return res.status(404).json({ message: "Text not found" });
   }
 
   if (text.isProtected) {
-    return res.status(400).json({
+    return res.status(200).json({
       text: text.text.replaceAll("a", "@"),
       sharing_code: text.sharing_code,
       diff,
@@ -37,7 +37,7 @@ export async function get(req: Request, res: Response) {
     });
   }
 
-  return res.status(400).json({
+  return res.status(200).json({
     text: cryptr.decrypt(text.text),
     sharing_code: text.sharing_code,
     diff,
