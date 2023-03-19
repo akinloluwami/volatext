@@ -36,60 +36,59 @@ const Create = () => {
   };
 
   return (
-    <div className="my-4 flex-col">
-      <div className="flex items-start w-full justify-center gap-10">
-        <div className="w-1/2">
-          <textarea
-            className="p-2 bg-transparent border-2 border-gray-900  w-full h-96 rounded-md"
-            placeholder="Type here..."
-            onChange={(e) => setText(e.target.value)}
-            value={text}
-          ></textarea>
+    <div className="flex justify-center gap-10 px-32 mt-10">
+      <div className="w-[60%]">
+        <textarea
+          className="p-2 bg-transparent border-2 border-gray-900  w-full h-96 rounded-md"
+          placeholder="Type here..."
+          onChange={(e) => setText(e.target.value)}
+          value={text}
+        ></textarea>
 
-          <button
-            className="btn my-4 lg:w-fit flex items-center lg:px-20 w-full disabled:cursor-not-allowed"
-            onClick={createText}
-            disabled={!text || length < 1}
-          >
-            {loading ? "Creating..." : "Create"}{" "}
-            {loading && <p className="animate-bounce text-3xl">*</p>}
-          </button>
+        <button
+          className="btn my-4 lg:w-fit flex items-center lg:px-20 w-full disabled:cursor-not-allowed"
+          onClick={createText}
+          disabled={!text || length < 1}
+        >
+          {loading ? "Creating..." : "Create"}{" "}
+          {loading && <p className="animate-bounce text-3xl">*</p>}
+        </button>
+      </div>
+      <div className="w-[30%]">
+        <h1 className="font-semibold text-xl mb-5">Options</h1>
+        <div className="flex items-center gap-1 my-3">
+          <p>Expire in</p>
+          <input
+            type="number"
+            value={length}
+            className="text-center w-8 rounded-md"
+            onChange={(e) => setLength(parseInt(e.target.value))}
+          />
+          <p>minutes</p>
         </div>
-        <div className="px-3">
-          <h1 className="font-semibold text-xl mb-5">Options</h1>
-          <div className="flex items-center gap-1 my-3">
-            <p>Expire in</p>
+        <div className="w-full mt-5">
+          <div className="flex items-center gap-2">
+            <h2 className="font-semibold">Password protected</h2>
             <input
-              type="number"
-              value={length}
-              className="text-center w-8 rounded-md"
-              onChange={(e) => setLength(parseInt(e.target.value))}
+              type="checkbox"
+              className="toggle toggle-sm"
+              checked={isProtected}
+              onChange={() => setIsProtected(!isProtected)}
             />
-            <p>minutes</p>
           </div>
-          <div className="">
-            <div className="flex items-center gap-2">
-              <h2 className="font-semibold">Password protected</h2>
-              <input
-                type="checkbox"
-                className="toggle toggle-sm"
-                checked={isProtected}
-                onChange={() => setIsProtected(!isProtected)}
-              />
-            </div>
-            {isProtected && (
-              <input
-                type="password"
-                className="rounded-md my-3 border-none outline-none pl-2"
-              />
-            )}
-          </div>
+          {isProtected && (
+            <input
+              type="password"
+              placeholder="Enter a password..."
+              className="rounded-md my-3 w-full py-2 border-none outline-none pl-2"
+            />
+          )}
         </div>
       </div>
 
-      <label htmlFor="my-modal-6" className="btn hidden" ref={modalRef}>
+      {/* <label htmlFor="my-modal-6" className="btn hidden" ref={modalRef}>
         open modal
-      </label>
+      </label> */}
 
       <input type="checkbox" id="my-modal-6" className="modal-toggle" />
       <div className="modal modal-bottom sm:modal-middle">
