@@ -6,6 +6,11 @@ export async function GET(
 ) {
   try {
     const { code, password } = params;
+    if (!code || !password) {
+      return NextResponse.json({
+        message: "Sharing code and password are required",
+      });
+    }
   } catch (error) {
     return NextResponse.json({ message: "Something went wrong" });
   }
