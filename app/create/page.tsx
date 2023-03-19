@@ -55,7 +55,7 @@ const Create = () => {
             {loading && <p className="animate-bounce text-3xl">*</p>}
           </button>
         </div>
-        <div className="">
+        <div className="px-3">
           <h1 className="font-semibold text-xl mb-5">Options</h1>
           <div className="flex items-center gap-1 my-3">
             <p>Expire in</p>
@@ -77,7 +77,12 @@ const Create = () => {
                 onChange={() => setIsProtected(!isProtected)}
               />
             </div>
-            {isProtected && <input type="password" className="" />}
+            {isProtected && (
+              <input
+                type="password"
+                className="rounded-md my-3 border-none outline-none pl-2"
+              />
+            )}
           </div>
         </div>
       </div>
