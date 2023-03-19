@@ -25,6 +25,7 @@ const TextPage = ({ params: { code } }: { params: { code: string } }) => {
   const [btnTxt, setBtnTxt] = useState<string>("Copy Text");
   const [password, setPassword] = useState<string>("");
   const [decrypting, setDecrypting] = useState<boolean>(false);
+  const [error, setError] = useState<string>("");
 
   useEffect(() => {
     async function fetchData() {
