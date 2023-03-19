@@ -68,6 +68,18 @@ const TextPage = ({ params: { code } }: { params: { code: string } }) => {
 
             <p>Auto deleting in {formatTimeLeft()}</p>
           </div>
+          <div className="mb-5 flex items-center flex-col justify-center">
+            <h1 className="font-semibold 2xl text-center">
+              This content is protected, enter the password to decrypt.
+            </h1>
+            <div className="flex gap-2 my-3">
+              <input
+                type="password"
+                className="input border-2 border-gray-500"
+              />
+              <button className="btn">Decrypt</button>
+            </div>
+          </div>
           <textarea
             className="p-2 bg-transparent border-2 border-gray-900 lg:w-1/2 w-full h-96 rounded-md"
             readOnly
