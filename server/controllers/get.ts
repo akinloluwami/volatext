@@ -3,7 +3,7 @@ import { Request, Response } from "express";
 import prisma from "../prisma/prisma";
 import cryptr from "../utils/cryptr";
 
-export async function get(req: Request, res: Response) {
+export default async function get(req: Request, res: Response) {
   const code: any = req.query;
 
   const text = await prisma.text.findUnique({

@@ -4,7 +4,7 @@ import prisma from "../prisma/prisma";
 import { Request, Response } from "express";
 import cryptr from "../utils/cryptr";
 
-export async function create(req: Request, res: Response) {
+export default async function create(req: Request, res: Response) {
   try {
     const { text, length, password, isProtected } = req.body;
 
