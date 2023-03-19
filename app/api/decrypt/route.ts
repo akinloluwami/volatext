@@ -34,6 +34,8 @@ export async function GET(
       text: cryptr.decrypt(text.text),
     });
   } catch (error) {
+    console.log(error);
+
     return NextResponse.json({ message: "Something went wrong" });
   }
 }
