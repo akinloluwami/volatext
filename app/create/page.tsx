@@ -81,6 +81,7 @@ const Create = () => {
               type="password"
               placeholder="Enter a password..."
               className="rounded-md my-3 w-full py-2 border-none outline-none pl-2"
+              onChange={(e) => setPassword(e.target.value)}
             />
           )}
         </div>
