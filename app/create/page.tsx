@@ -67,14 +67,17 @@ const Create = () => {
             />
             <p>minutes</p>
           </div>
-          <div className="flex items-center gap-2">
-            <h2 className="font-semibold">Password protected</h2>
-            <input
-              type="checkbox"
-              className="toggle toggle-sm"
-              checked={isProtected}
-              onChange={() => setIsProtected(!isProtected)}
-            />
+          <div className="">
+            <div className="flex items-center gap-2">
+              <h2 className="font-semibold">Password protected</h2>
+              <input
+                type="checkbox"
+                className="toggle toggle-sm"
+                checked={isProtected}
+                onChange={() => setIsProtected(!isProtected)}
+              />
+            </div>
+            {isProtected && <input type="password" className="" />}
           </div>
         </div>
       </div>
