@@ -1,4 +1,4 @@
-import prisma from "@/prisma/prisma";
+import prisma from "@/server/prisma/prisma";
 import cryptr from "@/utils/cryptr";
 import { NextResponse } from "next/server";
 

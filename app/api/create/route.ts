@@ -1,4 +1,4 @@
-import prisma from "../../../prisma/prisma";
+import prisma from "../../../server/prisma/prisma";
 import { NextResponse } from "next/server";
 import dayjs from "dayjs";
 import randomstring from "randomstring";
