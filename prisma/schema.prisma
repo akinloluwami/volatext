@@ -18,6 +18,7 @@ model Text {
   created DateTime
   expiry DateTime
   isProtected Boolean @default(false)
+  password String
   }
 
 
