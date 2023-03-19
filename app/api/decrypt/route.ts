@@ -30,6 +30,9 @@ export async function GET(
         message: "Invalid decryption payload",
       });
     }
+    return NextResponse.json({
+      text: cryptr.decrypt(text.text),
+    });
   } catch (error) {
     return NextResponse.json({ message: "Something went wrong" });
   }
