@@ -15,9 +15,9 @@ async function getText(code: string) {
 
 const TextPage = ({ params: { code } }: { params: { code: string } }) => {
   const [text, setText] = useState({ text: "", sharing_code: "", diff: 0 });
-  const [isLoading, setIsLoading] = useState(true);
-  const [timeLeft, setTimeLeft] = useState(0);
-  const [btnTxt, setBtnTxt] = useState("Copy Text");
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [timeLeft, setTimeLeft] = useState<number>(0);
+  const [btnTxt, setBtnTxt] = useState<string>("Copy Text");
   const [password, setPassword] = useState<string>("");
   useEffect(() => {
     async function fetchData() {
