@@ -13,7 +13,7 @@ export default async function get(req: Request, res: Response) {
   });
 
   if (!text) {
-    return res.status(404).json({ message: "Text not found bro" });
+    return res.status(404).json({ message: "Text not found" });
   }
 
   const now = dayjs();
@@ -25,7 +25,7 @@ export default async function get(req: Request, res: Response) {
     await prisma.text.delete({
       where: { sharing_code: code },
     });
-    return res.status(404).json({ message: "Text not found sis" });
+    return res.status(404).json({ message: "Text not found" });
   }
 
   if (text.isProtected) {
