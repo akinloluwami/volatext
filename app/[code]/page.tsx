@@ -4,7 +4,7 @@ import copyToClipboard from "@/utils/copyToClipboard";
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { error } from "console";
+
 async function getText(code: string) {
   const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/${code}`, {
     cache: "no-store",
