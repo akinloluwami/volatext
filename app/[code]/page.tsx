@@ -72,6 +72,7 @@ const TextPage = ({ params: { code } }: { params: { code: string } }) => {
       })
       .catch((error) => {
         setDecrypting(false);
+        setError(error.response.data.message);
         console.log(error);
       });
   };
@@ -100,6 +101,9 @@ const TextPage = ({ params: { code } }: { params: { code: string } }) => {
               <h1 className="font-semibold 2xl text-center">
                 This content is protected, enter the password to decrypt.
               </h1>
+              {error && !decrypting && (
+                <h2 className="my-3 font-semibold text-red-600">{error}</h2>
+              )}
               <div className="flex gap-2 my-3">
                 <input
                   type="password"
