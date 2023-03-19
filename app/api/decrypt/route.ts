@@ -1,3 +1,5 @@
+import prisma from "@/prisma/prisma";
+import cryptr from "@/utils/cryptr";
 import { NextResponse } from "next/server";
 
 export async function GET(
@@ -9,6 +11,23 @@ export async function GET(
     if (!code || !password) {
       return NextResponse.json({
         message: "Sharing code and password are required",
+      });
+    }
+    const text = await prisma.text.findUnique({
+      where: {
+        sharing_code: code,
+      },
+    });
+    if (!text) {
+      return NextResponse.json({
+        message: "Invalid decryption payload",
+      });
+    }
+    const isPasswordCorrect = password === cryptr.decrypt(text.password);
+
+    if (!isPasswordCorrect) {
+      return NextResponse.json({
+        message: "Invalid decryption payload",
       });
     }
   } catch (error) {
