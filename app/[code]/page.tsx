@@ -59,15 +59,18 @@ const TextPage = ({ params: { code } }: { params: { code: string } }) => {
   }
 
   const decrypt = () => {
+    setDecrypting(true);
     axios
       .get(
         `${process.env.NEXT_PUBLIC_BACKEND_URL}/decrypt?code=${text.sharing_code}&password=${password}`
       )
       .then((data) => {
         console.log(data.data);
+        setDecrypting(false);
         setText({ ...text, text: data.data.text, isProtected: false });
       })
       .catch((error) => {
+        setDecrypting(false);
         console.log(error);
       });
   };
