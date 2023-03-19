@@ -4,6 +4,7 @@ import copyToClipboard from "@/utils/copyToClipboard";
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { FaRegTrashAlt } from "react-icons/fa";
 
 async function getText(code: string) {
   const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/${code}`, {
@@ -94,7 +95,9 @@ const TextPage = ({ params: { code } }: { params: { code: string } }) => {
               <span className="font-semibold">{text.sharing_code} </span>
             </h2>
 
-            <p>Auto deleting in {formatTimeLeft()}</p>
+            <p>
+              <FaRegTrashAlt /> {formatTimeLeft()}
+            </p>
           </div>
           {text.isProtected && (
             <div className="mb-5 flex items-center flex-col justify-center">
