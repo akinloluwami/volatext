@@ -87,9 +87,9 @@ const Create = () => {
         </div>
       </div>
 
-      {/* <label htmlFor="my-modal-6" className="btn hidden" ref={modalRef}>
+      <label htmlFor="my-modal-6" className="btn hidden" ref={modalRef}>
         open modal
-      </label> */}
+      </label>
 
       <input type="checkbox" id="my-modal-6" className="modal-toggle" />
       <div className="modal modal-bottom sm:modal-middle">
