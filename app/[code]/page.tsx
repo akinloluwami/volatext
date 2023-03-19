@@ -3,7 +3,7 @@
 import copyToClipboard from "@/utils/copyToClipboard";
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
-
+import axios from "axios";
 async function getText(code: string) {
   const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/${code}`, {
     cache: "no-store",
@@ -48,6 +48,12 @@ const TextPage = ({ params: { code } }: { params: { code: string } }) => {
     const seconds = timeLeft % 60;
     return `${minutes}m${seconds}s`;
   }
+
+  const decrypt = () => {
+    axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/decrypt`).then((data) => {
+      console.log(data);
+    });
+  };
 
   return (
     <>
