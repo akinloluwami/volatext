@@ -18,7 +18,7 @@ const Create = () => {
 
   const createText = () => {
     setLoading(true);
-    const data = { text, length };
+    const data = { text, length, password, isProtected };
     fetch("/api/create", {
       method: "POST",
       body: JSON.stringify(data),
