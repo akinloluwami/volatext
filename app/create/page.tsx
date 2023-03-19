@@ -1,6 +1,7 @@
 "use client";
 
 import copyToClipboard from "@/utils/copyToClipboard";
+import axios from "axios";
 import React, { useState, useRef } from "react";
 
 const Create = () => {
@@ -19,15 +20,12 @@ const Create = () => {
   const createText = () => {
     setLoading(true);
     const data = { text, length, password, isProtected };
-    fetch("/api/create", {
-      method: "POST",
-      body: JSON.stringify(data),
-    })
-      .then((res) => res.json())
+    axios
+      .post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/create`, data)
       .then((data) => {
-        if (data.message === "Success") {
+        if (data.data.message === "Success") {
           setLoading(false);
-          setData(data);
+          setData(data.data);
           setText("");
           modalRef?.current?.click();
           return;

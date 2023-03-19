@@ -5,7 +5,7 @@ import Link from "next/link";
 import React, { useState, useEffect } from "react";
 
 async function getText(code: string) {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/${code}`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/${code}`, {
     cache: "no-store",
     next: { revalidate: 0 },
   });
