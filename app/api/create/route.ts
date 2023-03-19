@@ -2,7 +2,7 @@ import prisma from "../../../server/prisma/prisma";
 import { NextResponse } from "next/server";
 import dayjs from "dayjs";
 import randomstring from "randomstring";
-import cryptr from "@/utils/cryptr";
+import cryptr from "@/server/utils/cryptr";
 
 export async function POST(request: Request) {
   try {

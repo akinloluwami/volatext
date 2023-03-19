@@ -1,5 +1,5 @@
 import prisma from "@/server/prisma/prisma";
-import cryptr from "@/utils/cryptr";
+import cryptr from "@/server/utils/cryptr";
 import { NextResponse } from "next/server";
 
 export async function GET(

@@ -1,8 +1,8 @@
 import dayjs from "dayjs";
 import randomstring from "randomstring";
-import cryptr from "@/utils/cryptr";
 import prisma from "../prisma/prisma";
 import { Request, Response } from "express";
+import cryptr from "../utils/cryptr";
 
 export async function create(req: Request, res: Response) {
   try {
