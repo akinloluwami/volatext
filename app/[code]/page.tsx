@@ -65,7 +65,7 @@ const TextPage = ({ params: { code } }: { params: { code: string } }) => {
       )
       .then((data) => {
         console.log(data.data);
-        setText({ ...text, text: data.data.text });
+        setText({ ...text, text: data.data.text, isProtected: false });
       })
       .catch((error) => {
         console.log(error);
