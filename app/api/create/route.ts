@@ -31,7 +31,7 @@ export async function POST(request: Request) {
         sharing_code: randomstring.generate(4).toLowerCase(),
         created,
         expiry,
-        password,
+        password: cryptr.encrypt(password),
         isProtected,
       },
     });
