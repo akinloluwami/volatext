@@ -67,8 +67,8 @@ const Create = () => {
             />
             <p>minutes</p>
           </div>
-          <div className="flex">
-            <h2>Password protected</h2>
+          <div className="flex items-center gap-2">
+            <h2 className="font-semibold">Password protected</h2>
             <input type="checkbox" className="toggle toggle-sm" checked />
           </div>
         </div>
