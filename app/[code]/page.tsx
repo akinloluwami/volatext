@@ -57,6 +57,7 @@ const TextPage = ({ params: { code } }: { params: { code: string } }) => {
       )
       .then((data) => {
         console.log(data.data);
+        setText({ ...text, text: data.data.text });
       });
   };
 
@@ -87,6 +88,7 @@ const TextPage = ({ params: { code } }: { params: { code: string } }) => {
               <input
                 type="password"
                 className="input border-2 border-gray-500"
+                onChange={(e) => setPassword(e.target.value)}
               />
               <button className="btn" onClick={decrypt}>
                 Decrypt
