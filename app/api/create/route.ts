@@ -12,6 +12,12 @@ export async function POST(request: Request) {
       return NextResponse.json({ message: "Text is required" });
     }
 
+    if (isProtected && !password) {
+      return NextResponse.json({
+        message: "Password is require for protected content",
+      });
+    }
+
     const expiry = dayjs()
       .add(length || 15, length < 2 ? "minute" : "minutes")
       .toDate();
