@@ -36,7 +36,7 @@ const Create = () => {
   };
 
   return (
-    <div className="flex justify-center gap-10 lg:px-32 mt-10 flex-col lg:flex-row">
+    <div className="flex justify-center gap-10 lg:px-32 mt-10 flex-col lg:flex-row pb-10">
       <div className="lg:w-[60%]">
         <textarea
           className="p-2 bg-transparent border-2 border-gray-900  w-full h-96 rounded-md"
