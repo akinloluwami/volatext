@@ -20,7 +20,7 @@ const Create = () => {
 
   const createText = () => {
     setLoading(true);
-    const data = { text, length, password, isProtected };
+    const data = { text, length, password, isProtected, selfDestruct };
     axios
       .post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/create`, data)
       .then((data) => {
