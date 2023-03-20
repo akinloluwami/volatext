@@ -89,7 +89,10 @@ const Create = () => {
         </div>
         <div className="w-full mt-5">
           <div className="flex items-center gap-2">
-            <div className="tooltip" data-tip="hello">
+            <div
+              className="tooltip"
+              data-tip="Text get automatically deleted after being viewed once."
+            >
               <TbInfoHexagon />
             </div>
             <h2 className="font-semibold">Self-destruct</h2>
