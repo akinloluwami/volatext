@@ -3,6 +3,7 @@
 import copyToClipboard from "@/utils/copyToClipboard";
 import axios from "axios";
 import React, { useState, useRef } from "react";
+import { TbInfoHexagon } from "react-icons/tb";
 
 const Create = () => {
   const [loading, setLoading] = useState<boolean>(false);
@@ -88,6 +89,9 @@ const Create = () => {
         </div>
         <div className="w-full mt-5">
           <div className="flex items-center gap-2">
+            <div className="tooltip" data-tip="hello">
+              <TbInfoHexagon />
+            </div>
             <h2 className="font-semibold">Self-destruct</h2>
             <input
               type="checkbox"
