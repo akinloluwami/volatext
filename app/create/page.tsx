@@ -86,6 +86,17 @@ const Create = () => {
             />
           )}
         </div>
+        <div className="w-full mt-5">
+          <div className="flex items-center gap-2">
+            <h2 className="font-semibold">Self-destruct</h2>
+            <input
+              type="checkbox"
+              className="toggle toggle-sm"
+              checked={selfDestruct}
+              onChange={() => setSelfDestruct(!selfDestruct)}
+            />
+          </div>
+        </div>
       </div>
 
       <label htmlFor="my-modal-6" className="btn hidden" ref={modalRef}>
