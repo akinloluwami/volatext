@@ -141,6 +141,14 @@ const Create = () => {
               type="checkbox"
               className="toggle toggle-sm"
               checked={viewsCount}
+              onClick={() => {
+                if (selfDestruct) {
+                  setShowToast(true);
+                  setTimeout(() => {
+                    setShowToast(false);
+                  }, 1000);
+                }
+              }}
               onChange={() => {
                 if (!selfDestruct) {
                   setViewsCount(!viewsCount);
