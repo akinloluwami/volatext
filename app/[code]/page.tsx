@@ -93,7 +93,7 @@ const TextPage = ({ params: { code } }: { params: { code: string } }) => {
           </h1>
         </div>
       ) : text.text ? (
-        <div className="my-4 flex-col flex items-center justify-center">
+        <div className="my-4 flex-col flex items-center justify-center relative">
           <div className="lg:w-1/2 w-full my-5 flex justify-between">
             <h2 className="text-left lg:text-2xl text-lg">
               Sharing code -{" "}
@@ -125,6 +125,9 @@ const TextPage = ({ params: { code } }: { params: { code: string } }) => {
               </div>
             </div>
           )}
+          <button className="btn absolute lg:right-20 right-0 -top-10">
+            69 views
+          </button>
           <textarea
             className="p-2 bg-transparent border-2 border-gray-900 lg:w-1/2 w-full h-96 rounded-md"
             readOnly
