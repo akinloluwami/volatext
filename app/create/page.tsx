@@ -119,7 +119,12 @@ const Create = () => {
               type="checkbox"
               className="toggle toggle-sm"
               checked={selfDestruct}
-              onChange={() => setSelfDestruct(!selfDestruct)}
+              onChange={() => {
+                setSelfDestruct(!selfDestruct);
+                if (viewsCount) {
+                  setViewsCount(false);
+                }
+              }}
             />
           </div>
         </div>
@@ -136,7 +141,11 @@ const Create = () => {
               type="checkbox"
               className="toggle toggle-sm"
               checked={viewsCount}
-              onChange={() => setViewsCount(!viewsCount)}
+              onChange={() => {
+                if (!selfDestruct) {
+                  setViewsCount(!viewsCount);
+                }
+              }}
             />
           </div>
         </div>
