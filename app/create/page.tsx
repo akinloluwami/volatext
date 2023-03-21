@@ -4,7 +4,7 @@ import copyToClipboard from "@/utils/copyToClipboard";
 import axios from "axios";
 import React, { useState, useRef } from "react";
 import { TbInfoHexagon } from "react-icons/tb";
-import { db } from "@/utils/db";
+import db from "@/utils/db";
 
 const Create = () => {
   const [loading, setLoading] = useState<boolean>(false);
@@ -47,17 +47,23 @@ const Create = () => {
   const [showToast, setShowToast] = useState<boolean>(false);
 
   const addToken = async () => {
-    try {
-      await db.accessToken.add({
-        token: "babysy5367485909847vubmoibuv",
+    db.tokens
+      .add({
+        accessToken: "your_access_token_here",
+      })
+      .then(() => {
+        console.log("Token added to database.");
+      })
+      .catch((error: any) => {
+        console.error(error);
       });
-    } catch (error) {
-      console.log(error);
-    }
   };
 
   return (
     <div className="flex justify-center gap-10 lg:px-32 mt-10 flex-col lg:flex-row pb-10">
+      <button className="btn" onClick={addToken}>
+        BTN
+      </button>
       {showToast && (
         <div className="toast toast-top toast-end">
           <div className="alert alert-info">
