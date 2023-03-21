@@ -18,6 +18,7 @@ const Create = () => {
   const [password, setPassword] = useState<string>("");
   const [isProtected, setIsProtected] = useState<boolean>(false);
   const [selfDestruct, setSelfDestruct] = useState<boolean>(false);
+  const [viewsCount, setViewsCount] = useState<boolean>(false);
 
   const createText = () => {
     setLoading(true);
