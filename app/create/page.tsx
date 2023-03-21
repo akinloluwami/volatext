@@ -108,7 +108,7 @@ const Create = () => {
           <div className="flex items-center gap-2">
             <div
               className="tooltip"
-              data-tip="Text get automatically deleted after being viewed once."
+              data-tip="Enables you to see the number of views on your link."
             >
               <TbInfoHexagon />
             </div>
