@@ -43,6 +43,8 @@ const Create = () => {
       });
   };
 
+  const [showToast, setShowToast] = useState<boolean>(false);
+
   return (
     <div className="flex justify-center gap-10 lg:px-32 mt-10 flex-col lg:flex-row pb-10">
       <div className="toast toast-top toast-end">
