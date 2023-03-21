@@ -63,7 +63,7 @@ const Create = () => {
           <input
             type="number"
             value={length}
-            className="text-center w-8 rounded-md"
+            className="text-center w-10 rounded-md"
             onChange={(e) => setLength(parseInt(e.target.value))}
           />
           <p>minutes</p>
