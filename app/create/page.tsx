@@ -21,6 +21,19 @@ const Create = () => {
   const [selfDestruct, setSelfDestruct] = useState<boolean>(false);
   const [viewsCount, setViewsCount] = useState<boolean>(false);
 
+  const addToken = async (token: string) => {
+    db.tokens
+      .add({
+        accessToken: token,
+      })
+      .then(() => {
+        console.log("Token added to database.");
+      })
+      .catch((error: any) => {
+        console.error(error);
+      });
+  };
+
   const createText = () => {
     setLoading(true);
     const data = {
@@ -45,19 +58,6 @@ const Create = () => {
   };
 
   const [showToast, setShowToast] = useState<boolean>(false);
-
-  const addToken = async (token: string) => {
-    db.tokens
-      .add({
-        accessToken: token,
-      })
-      .then(() => {
-        console.log("Token added to database.");
-      })
-      .catch((error: any) => {
-        console.error(error);
-      });
-  };
 
   return (
     <div className="flex justify-center gap-10 lg:px-32 mt-10 flex-col lg:flex-row pb-10">
