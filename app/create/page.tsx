@@ -51,7 +51,7 @@ const Create = () => {
         <div className="toast toast-top toast-end">
           <div className="alert alert-info">
             <div>
-              <span>New mail arrived.</span>
+              <span>Cannot set view counts while self-destruct is active.</span>
             </div>
           </div>
         </div>
