@@ -48,7 +48,6 @@ const Create = () => {
       .post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/create`, data)
       .then((data) => {
         if (data.data.message === "Success") {
-          // console.log(data.data.Text);
           if (viewsCount) {
             addToken(data.data.Text.accessToken);
           }
