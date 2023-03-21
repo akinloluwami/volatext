@@ -75,7 +75,14 @@ const TextPage = ({ params: { code } }: { params: { code: string } }) => {
         setError(error.response.data.message);
       });
   };
+  const [alreadyRun, setAlreadyRun] = useState(false);
 
+  useEffect(() => {
+    if (!alreadyRun) {
+      console.log("BABE");
+      setAlreadyRun(true);
+    }
+  }, []);
   return (
     <>
       {isLoading ? (
