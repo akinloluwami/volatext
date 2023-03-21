@@ -135,8 +135,8 @@ const Create = () => {
             <input
               type="checkbox"
               className="toggle toggle-sm"
-              checked={selfDestruct}
-              onChange={() => setSelfDestruct(!selfDestruct)}
+              checked={viewsCount}
+              onChange={() => setViewsCount(!viewsCount)}
             />
           </div>
         </div>
