@@ -146,7 +146,7 @@ const Create = () => {
                   setShowToast(true);
                   setTimeout(() => {
                     setShowToast(false);
-                  }, 1000);
+                  }, 2500);
                 }
               }}
               onChange={() => {
