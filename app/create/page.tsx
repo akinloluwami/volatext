@@ -47,13 +47,15 @@ const Create = () => {
 
   return (
     <div className="flex justify-center gap-10 lg:px-32 mt-10 flex-col lg:flex-row pb-10">
-      <div className="toast toast-top toast-end">
-        <div className="alert alert-info">
-          <div>
-            <span>New mail arrived.</span>
+      {showToast && (
+        <div className="toast toast-top toast-end">
+          <div className="alert alert-info">
+            <div>
+              <span>New mail arrived.</span>
+            </div>
           </div>
         </div>
-      </div>
+      )}
       <div className="lg:w-[60%]">
         <textarea
           className="p-2 bg-transparent border-2 border-gray-900  w-full h-96 rounded-md"
