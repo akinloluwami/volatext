@@ -1,17 +1,16 @@
+// db.
 import Dexie, { Table } from "dexie";
 
-export interface AccessToken {
-  token: string;
-}
-
-export class SubClassedAccessToken extends Dexie {
-  accessToken!: Table<AccessToken>;
+class DB extends Dexie {
+  tokens: Dexie.Table<{ id?: number; accessToken: string }, number>;
   constructor() {
-    super("accessToken");
+    super("volaText");
     this.version(1).stores({
-      friends: "token",
+      tokens: "++id,accessToken",
     });
+    this.tokens = this.table("tokens");
   }
 }
+const db = new DB();
 
-export const db = new SubClassedAccessToken();
+export default db;
