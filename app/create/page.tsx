@@ -46,10 +46,10 @@ const Create = () => {
 
   const [showToast, setShowToast] = useState<boolean>(false);
 
-  const addToken = async () => {
+  const addToken = async (token: string) => {
     db.tokens
       .add({
-        accessToken: "your_access_token_here",
+        accessToken: token,
       })
       .then(() => {
         console.log("Token added to database.");
@@ -61,9 +61,6 @@ const Create = () => {
 
   return (
     <div className="flex justify-center gap-10 lg:px-32 mt-10 flex-col lg:flex-row pb-10">
-      <button className="btn" onClick={addToken}>
-        BTN
-      </button>
       {showToast && (
         <div className="toast toast-top toast-end">
           <div className="alert alert-info">
