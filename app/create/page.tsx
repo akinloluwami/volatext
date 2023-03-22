@@ -4,7 +4,6 @@ import copyToClipboard from "@/utils/copyToClipboard";
 import axios from "axios";
 import React, { useState, useRef } from "react";
 import { TbInfoHexagon } from "react-icons/tb";
-import db from "@/utils/db";
 
 const Create = () => {
   const [loading, setLoading] = useState<boolean>(false);
@@ -22,17 +21,16 @@ const Create = () => {
   const [viewsCount, setViewsCount] = useState<boolean>(false);
 
   const addToken = async (token: string, code: string) => {
-    db.tokens
-      .add({
-        accessToken: token,
-        code: code,
-      })
-      .then(() => {
-        console.log("Token added to database.");
-      })
-      .catch((error: any) => {
-        console.error(error);
-      });
+    if (!localStorage.getItem("tokens")) {
+      localStorage.setItem("tokens", JSON.stringify({ token, code }));
+      return;
+    }
+    const prevTokens = JSON.parse(localStorage.getItem("tokens") ?? "[]");
+
+    localStorage.setItem(
+      "tokens",
+      JSON.stringify([...prevTokens, { token, code }])
+    );
   };
 
   const createText = () => {
