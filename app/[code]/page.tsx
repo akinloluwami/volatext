@@ -25,6 +25,7 @@ const TextPage = ({ params: { code } }: { params: { code: string } }) => {
     diff: 0,
     isProtected: false,
     views: 0,
+    viewsCount: false,
   });
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [timeLeft, setTimeLeft] = useState<number>(0);
@@ -35,19 +36,23 @@ const TextPage = ({ params: { code } }: { params: { code: string } }) => {
   const [count, setCount] = useState();
   const [isOwner, setIsOwner] = useState<boolean>();
 
-  const getToken = () => {
-    if (localStorage.getItem("tokens")) {
-      const tkn = JSON.parse(localStorage.getItem("tokens") ?? "[]") as [];
-      const rr: any = tkn.filter(
-        (t: { code: string; token: string }) => t.code === code
-      );
-      return rr[0].token;
-    }
-  };
-
   useEffect(() => {
     async function fetchData() {
       try {
+        const getToken = () => {
+          if (localStorage.getItem("tokens")) {
+            const tkn = JSON.parse(
+              localStorage.getItem("tokens") ?? "[]"
+            ) as [];
+            const rr: any = tkn.filter(
+              (t: { code: string; token: string }) => t.code === code
+            );
+            if (rr.length > 0) {
+              return rr[0].token;
+            }
+          }
+          return null;
+        };
         const textData = await getText(code, getToken());
         setText(textData);
         setCount(textData.viewsCount);
@@ -68,6 +73,7 @@ const TextPage = ({ params: { code } }: { params: { code: string } }) => {
           diff: 0,
           isProtected: false,
           views: 0,
+          viewsCount: false,
         });
       }
       setIsLoading(false);
@@ -148,7 +154,7 @@ const TextPage = ({ params: { code } }: { params: { code: string } }) => {
               </div>
             </div>
           )}
-          {isOwner && (
+          {isOwner && text.viewsCount && (
             <button className="btn absolute lg:right-20 right-0 -top-10">
               {text.views} views
             </button>
