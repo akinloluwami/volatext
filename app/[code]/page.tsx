@@ -6,11 +6,14 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { FaRegTrashAlt } from "react-icons/fa";
 
-async function getText(code: string) {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/${code}`, {
-    cache: "no-store",
-    next: { revalidate: 0 },
-  });
+async function getText(code: string, accessToken?: string) {
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_BACKEND_URL}/${code}?accessToken=${accessToken}`,
+    {
+      cache: "no-store",
+      next: { revalidate: 0 },
+    }
+  );
   return res.json();
 }
 
