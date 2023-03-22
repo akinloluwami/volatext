@@ -80,11 +80,7 @@ const TextPage = ({ params: { code } }: { params: { code: string } }) => {
 
   useEffect(() => {
     if (!alreadyRun) {
-      axios
-        .post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/count?code=${code}`)
-        .then((data) => console.log(data.data))
-        .catch((err) => console.log(err));
-      console.log("BABE");
+      axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/count?code=${code}`);
       setAlreadyRun(true);
     }
   }, [count]);
