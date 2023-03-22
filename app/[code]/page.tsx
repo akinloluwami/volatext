@@ -50,7 +50,6 @@ const TextPage = ({ params: { code } }: { params: { code: string } }) => {
       try {
         const textData = await getText(code, getToken());
         setText(textData);
-        console.log(textData);
         setCount(textData.viewsCount);
         setIsOwner(textData.isOwner);
         if (!textData.isOwner) {
