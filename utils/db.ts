@@ -1,7 +1,7 @@
 import Dexie, { Table } from "dexie";
 
 class DB extends Dexie {
-  tokens: Table<{ id?: number; accessToken: string }, number>;
+  tokens: Table<{ id?: number; accessToken: string; code: string }, number>;
   constructor() {
     super("volaText");
     this.version(1).stores({
