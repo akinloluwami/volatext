@@ -156,7 +156,7 @@ const TextPage = ({ params: { code } }: { params: { code: string } }) => {
           )}
           {isOwner && text.viewsCount && (
             <button className="btn absolute lg:right-20 right-0 -top-10">
-              {text.views} views
+              {text.views} {text.views === 1 ? "view" : "views"}
             </button>
           )}
           <textarea
