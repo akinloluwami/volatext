@@ -22,7 +22,7 @@ const Create = () => {
 
   const addToken = async (token: string, code: string) => {
     if (!localStorage.getItem("tokens")) {
-      localStorage.setItem("tokens", JSON.stringify({ token, code }));
+      localStorage.setItem("tokens", JSON.stringify([{ token, code }]));
       return;
     }
     const prevTokens = JSON.parse(localStorage.getItem("tokens") ?? "[]");
