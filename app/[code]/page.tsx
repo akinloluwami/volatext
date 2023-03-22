@@ -34,6 +34,8 @@ const TextPage = ({ params: { code } }: { params: { code: string } }) => {
       try {
         const textData = await getText(code);
         setText(textData);
+        console.log(textData);
+        setCount(textData.viewsCount);
         const { diff } = textData;
         if (diff > 0) {
           setTimeLeft(diff * 60);
