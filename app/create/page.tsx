@@ -21,10 +21,11 @@ const Create = () => {
   const [selfDestruct, setSelfDestruct] = useState<boolean>(false);
   const [viewsCount, setViewsCount] = useState<boolean>(false);
 
-  const addToken = async (token: string) => {
+  const addToken = async (token: string, code: string) => {
     db.tokens
       .add({
         accessToken: token,
+        code: code,
       })
       .then(() => {
         console.log("Token added to database.");
@@ -49,7 +50,7 @@ const Create = () => {
       .then((data) => {
         if (data.data.message === "Success") {
           if (viewsCount) {
-            addToken(data.data.Text.accessToken);
+            addToken(data.data.Text.accessToken, data.data.Text.sharing_code);
           }
           setLoading(false);
           setData(data.data);
