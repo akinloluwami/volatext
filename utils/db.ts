@@ -5,7 +5,7 @@ class DB extends Dexie {
   constructor() {
     super("volaText");
     this.version(1).stores({
-      tokens: "++id,accessToken",
+      tokens: "++id,accessToken,code",
     });
     this.tokens = this.table("tokens");
   }
