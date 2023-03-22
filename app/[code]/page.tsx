@@ -27,6 +27,7 @@ const TextPage = ({ params: { code } }: { params: { code: string } }) => {
   const [password, setPassword] = useState<string>("");
   const [decrypting, setDecrypting] = useState<boolean>(false);
   const [error, setError] = useState<string>("");
+  const [count, setCount] = useState();
 
   useEffect(() => {
     async function fetchData() {
@@ -79,10 +80,14 @@ const TextPage = ({ params: { code } }: { params: { code: string } }) => {
 
   useEffect(() => {
     if (!alreadyRun) {
+      axios
+        .post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/count?code=${code}`)
+        .then((data) => console.log(data.data))
+        .catch((err) => console.log(err));
       console.log("BABE");
       setAlreadyRun(true);
     }
-  }, []);
+  }, [count]);
   return (
     <>
       {isLoading ? (
