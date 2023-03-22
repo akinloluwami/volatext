@@ -6,16 +6,9 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { FaRegTrashAlt } from "react-icons/fa";
 
-async function getText(code: string) {
-  const tkn = JSON.parse(localStorage.getItem("tokens") ?? "{}") as [];
-  const rr: any = tkn.filter(
-    (t: { code: string; token: string }) => t.code === code
-  );
-
+async function getText(code: string, token: string) {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_BACKEND_URL}/${code}?accessToken=${
-      rr[0].token || ""
-    }`,
+    `${process.env.NEXT_PUBLIC_BACKEND_URL}/${code}?accessToken=${token || ""}`,
     {
       cache: "no-store",
       next: { revalidate: 0 },
@@ -31,6 +24,7 @@ const TextPage = ({ params: { code } }: { params: { code: string } }) => {
     sharing_code: "",
     diff: 0,
     isProtected: false,
+    views: 0,
   });
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [timeLeft, setTimeLeft] = useState<number>(0);
@@ -39,20 +33,43 @@ const TextPage = ({ params: { code } }: { params: { code: string } }) => {
   const [decrypting, setDecrypting] = useState<boolean>(false);
   const [error, setError] = useState<string>("");
   const [count, setCount] = useState();
+  const [isOwner, setIsOwner] = useState<boolean>();
+
+  const getToken = () => {
+    if (localStorage.getItem("tokens")) {
+      const tkn = JSON.parse(localStorage.getItem("tokens") ?? "[]") as [];
+      const rr: any = tkn.filter(
+        (t: { code: string; token: string }) => t.code === code
+      );
+      return rr[0].token;
+    }
+  };
 
   useEffect(() => {
     async function fetchData() {
       try {
-        const textData = await getText(code);
+        const textData = await getText(code, getToken());
         setText(textData);
         console.log(textData);
         setCount(textData.viewsCount);
+        setIsOwner(textData.isOwner);
+        if (!textData.isOwner) {
+          axios.post(
+            `${process.env.NEXT_PUBLIC_BACKEND_URL}/count?code=${code}`
+          );
+        }
         const { diff } = textData;
         if (diff > 0) {
           setTimeLeft(diff * 60);
         }
       } catch (error) {
-        setText({ text: "", sharing_code: "", diff: 0, isProtected: false });
+        setText({
+          text: "",
+          sharing_code: "",
+          diff: 0,
+          isProtected: false,
+          views: 0,
+        });
       }
       setIsLoading(false);
     }
@@ -89,14 +106,7 @@ const TextPage = ({ params: { code } }: { params: { code: string } }) => {
         setError(error.response.data.message);
       });
   };
-  const [alreadyRun, setAlreadyRun] = useState(false);
 
-  useEffect(() => {
-    if (!alreadyRun) {
-      axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/count?code=${code}`);
-      setAlreadyRun(true);
-    }
-  }, [count]);
   return (
     <>
       {isLoading ? (
@@ -139,9 +149,11 @@ const TextPage = ({ params: { code } }: { params: { code: string } }) => {
               </div>
             </div>
           )}
-          <button className="btn absolute lg:right-20 right-0 -top-10">
-            69 views
-          </button>
+          {isOwner && (
+            <button className="btn absolute lg:right-20 right-0 -top-10">
+              {text.views} views
+            </button>
+          )}
           <textarea
             className="p-2 bg-transparent border-2 border-gray-900 lg:w-1/2 w-full h-96 rounded-md"
             readOnly
