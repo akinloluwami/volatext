@@ -5,24 +5,16 @@ import Link from "next/link";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { FaRegTrashAlt } from "react-icons/fa";
-import db from "@/utils/db";
 
 async function getText(code: string) {
-  let accessToken;
-  try {
-    await db.open();
-    const token = await db.tokens.where({ code }).first(); // Get token using the `where` method and `code` as the query
-    accessToken = token?.accessToken;
-    console.log(token);
-
-    // Assign the accessToken to the variable `accessToken`
-  } catch (error) {
-    console.error(error);
-  }
+  const tkn = JSON.parse(localStorage.getItem("tokens") ?? "{}") as [];
+  const rr: any = tkn.filter(
+    (t: { code: string; token: string }) => t.code === code
+  );
 
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_BACKEND_URL}/${code}?accessToken=${
-      accessToken || ""
+      rr[0].token || ""
     }`,
     {
       cache: "no-store",
