@@ -33,7 +33,23 @@ const Create = () => {
     );
   };
 
-  const createText = () => {
+  const createText = ({
+    text,
+    length,
+    password,
+    isProtected,
+    selfDestruct,
+    viewsCount,
+    onClick,
+  }: {
+    text: string;
+    length: number;
+    password: string;
+    isProtected: boolean;
+    selfDestruct: boolean;
+    viewsCount: boolean;
+    onClick: () => void;
+  }) => {
     setLoading(true);
     const data = {
       text,
