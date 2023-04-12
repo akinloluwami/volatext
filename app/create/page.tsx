@@ -33,23 +33,7 @@ const Create = () => {
     );
   };
 
-  const createText = ({
-    text,
-    length,
-    password,
-    isProtected,
-    selfDestruct,
-    viewsCount,
-    onClick,
-  }: {
-    text: string;
-    length: number;
-    password: string;
-    isProtected: boolean;
-    selfDestruct: boolean;
-    viewsCount: boolean;
-    onClick: () => void;
-  }) => {
+  const createText = () => {
     setLoading(true);
     const data = {
       text,
@@ -100,7 +84,9 @@ const Create = () => {
 
         <button
           className="btn my-4 lg:w-fit flex items-center lg:px-20 w-full disabled:cursor-not-allowed"
-          onClick={createText}
+          onClick={() => {
+            createText();
+          }}
           disabled={
             !text || length < 1 || (isProtected && !password) || loading
           }
