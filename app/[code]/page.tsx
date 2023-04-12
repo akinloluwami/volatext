@@ -51,7 +51,7 @@ const TextPage = ({ params: { code } }: { params: { code: string } }) => {
               return rr[0].token;
             }
           }
-          return null;
+          return "";
         };
         const textData = await getText(code, getToken());
         setText(textData);
